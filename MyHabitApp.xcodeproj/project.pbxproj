@@ -16,6 +16,7 @@
 		AC45866F297173690014A3E5 /* MyHabitAppTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45866E297173690014A3E5 /* MyHabitAppTests.swift */; };
 		AC458679297173690014A3E5 /* MyHabitAppUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC458678297173690014A3E5 /* MyHabitAppUITests.swift */; };
 		AC45867B297173690014A3E5 /* MyHabitAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45867A297173690014A3E5 /* MyHabitAppUITestsLaunchTests.swift */; };
+		AC458689297175240014A3E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC458688297175240014A3E5 /* HomeView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,13 +42,14 @@
 		AC45865A297173670014A3E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AC45865C297173690014A3E5 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AC45865F297173690014A3E5 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AC458661297173690014A3E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; };
+		AC458661297173690014A3E5 /* Persistence.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Persistence.swift; sourceTree = "<group>"; wrapsLines = 0; };
 		AC458664297173690014A3E5 /* MyHabitApp.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = MyHabitApp.xcdatamodel; sourceTree = "<group>"; };
 		AC45866A297173690014A3E5 /* MyHabitAppTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyHabitAppTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC45866E297173690014A3E5 /* MyHabitAppTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitAppTests.swift; sourceTree = "<group>"; };
 		AC458674297173690014A3E5 /* MyHabitAppUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyHabitAppUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC458678297173690014A3E5 /* MyHabitAppUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitAppUITests.swift; sourceTree = "<group>"; };
 		AC45867A297173690014A3E5 /* MyHabitAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		AC458688297175240014A3E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +100,7 @@
 		AC458657297173670014A3E5 /* MyHabitApp */ = {
 			isa = PBXGroup;
 			children = (
+				AC458687297175030014A3E5 /* View */,
 				AC458658297173670014A3E5 /* MyHabitAppApp.swift */,
 				AC45865A297173670014A3E5 /* ContentView.swift */,
 				AC45865C297173690014A3E5 /* Assets.xcassets */,
@@ -131,6 +134,14 @@
 				AC45867A297173690014A3E5 /* MyHabitAppUITestsLaunchTests.swift */,
 			);
 			path = MyHabitAppUITests;
+			sourceTree = "<group>";
+		};
+		AC458687297175030014A3E5 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				AC458688297175240014A3E5 /* HomeView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -266,6 +277,7 @@
 				AC458662297173690014A3E5 /* Persistence.swift in Sources */,
 				AC45865B297173670014A3E5 /* ContentView.swift in Sources */,
 				AC458665297173690014A3E5 /* MyHabitApp.xcdatamodeld in Sources */,
+				AC458689297175240014A3E5 /* HomeView.swift in Sources */,
 				AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
