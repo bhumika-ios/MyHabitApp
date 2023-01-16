@@ -19,6 +19,8 @@
 		AC458689297175240014A3E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC458688297175240014A3E5 /* HomeView.swift */; };
 		AC45868B297176620014A3E5 /* AddNewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45868A297176620014A3E5 /* AddNewTask.swift */; };
 		AC61F10129751DC80003C42E /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F10029751DC80003C42E /* TaskViewModel.swift */; };
+		AC61F103297552640003C42E /* AddBottomSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */; };
+		AC61F10529755E5A0003C42E /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F10429755E5A0003C42E /* TabView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -54,6 +56,8 @@
 		AC458688297175240014A3E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AC45868A297176620014A3E5 /* AddNewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTask.swift; sourceTree = "<group>"; };
 		AC61F10029751DC80003C42E /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
+		AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBottomSelectionSheet.swift; sourceTree = "<group>"; };
+		AC61F10429755E5A0003C42E /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,6 +150,8 @@
 			children = (
 				AC458688297175240014A3E5 /* HomeView.swift */,
 				AC45868A297176620014A3E5 /* AddNewTask.swift */,
+				AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */,
+				AC61F10429755E5A0003C42E /* TabView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -293,7 +299,9 @@
 				AC45865B297173670014A3E5 /* ContentView.swift in Sources */,
 				AC458665297173690014A3E5 /* MyHabitApp.xcdatamodeld in Sources */,
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,
+				AC61F103297552640003C42E /* AddBottomSelectionSheet.swift in Sources */,
 				AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */,
+				AC61F10529755E5A0003C42E /* TabView.swift in Sources */,
 				AC45868B297176620014A3E5 /* AddNewTask.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

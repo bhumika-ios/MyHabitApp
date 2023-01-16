@@ -12,7 +12,7 @@ struct HomeView: View {
     @StateObject var taskModel: TaskViewModel = .init()
     //MARK: Matched Geometry Names
     @Namespace var animation
-  
+  @State var showAddBottomSheet = false
     
 //    MARK: Fetching Task
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.taskDate, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
@@ -50,7 +50,7 @@ struct HomeView: View {
                 //MARK:Add button
                 Button{
                    // taskModel.openEditTask.toggle()
-                    taskModel.OpenEditTask.toggle()
+                    showAddBottomSheet.toggle()
                     
                 }label: {
                     Label{
@@ -89,12 +89,17 @@ struct HomeView: View {
 //                    .ignoresSafeArea()
 //                }
             }
-                .fullScreenCover(isPresented: $taskModel.OpenEditTask){
-                taskModel.resetTaskData()
-            } content: {
-                AddNewTask()
-                    .environmentObject(taskModel)
-            }
+           
+//                .fullScreenCover(isPresented: $taskModel.OpenEditTask){
+//                taskModel.resetTaskData()
+//            } content: {
+//                AddNewTask()
+//                    .environmentObject(taskModel)
+//            }
+        }
+        .sheet(isPresented: $showAddBottomSheet){
+            AddBottomSelectionSheet()
+                .presentationDetents([.height(180), .height(180)])
         }
         
     }
