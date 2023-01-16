@@ -280,11 +280,23 @@ struct HomeView: View {
 //                           .fill(.white.opacity(0.3))
 //                    }
               //  Spacer()
-                Text(task.taskName ?? "")
+                if task.isCompleted{
+                    Text(task.taskName ?? "")
                     //.font(.title3)
                     .font(.system(size: 16))
                    // .foregroundColor(task.color)
                     .padding(.vertical,10)
+                    strikethrough()
+                   // .strikethrough(true, color: Color.red)
+                }else{
+                    Text(task.taskName ?? "")
+                    //.font(.title3)
+                    .font(.system(size: 16))
+                   // .foregroundColor(task.color)
+                    .padding(.vertical,10)
+                }
+             
+                 
                 Spacer()
 //                MARK:  Edit button only for noncomleted task
                 //&& taskModel.currentTab != "Failed Task"
