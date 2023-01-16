@@ -8,7 +8,8 @@
 import SwiftUI
 
 struct AddNewTask: View {
-    @EnvironmentObject var taskModel: TaskViewModel
+  
+    @EnvironmentObject var taskModel: TaskkViewModel
     //MARK:All environment values in one variable
     @Environment(\.self) var env
     @Namespace var animation
@@ -219,6 +220,7 @@ struct AddNewTask: View {
 struct AddNewTask_Previews: PreviewProvider {
     static var previews: some View {
         AddNewTask()
-            .environmentObject(TaskViewModel())
+          
+            .environmentObject(TaskkViewModel())
     }
 }

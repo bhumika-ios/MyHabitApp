@@ -18,6 +18,7 @@
 		AC45867B297173690014A3E5 /* MyHabitAppUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45867A297173690014A3E5 /* MyHabitAppUITestsLaunchTests.swift */; };
 		AC458689297175240014A3E5 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC458688297175240014A3E5 /* HomeView.swift */; };
 		AC45868B297176620014A3E5 /* AddNewTask.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45868A297176620014A3E5 /* AddNewTask.swift */; };
+		AC61F10129751DC80003C42E /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F10029751DC80003C42E /* TaskViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +53,7 @@
 		AC45867A297173690014A3E5 /* MyHabitAppUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitAppUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		AC458688297175240014A3E5 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		AC45868A297176620014A3E5 /* AddNewTask.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddNewTask.swift; sourceTree = "<group>"; };
+		AC61F10029751DC80003C42E /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +104,7 @@
 		AC458657297173670014A3E5 /* MyHabitApp */ = {
 			isa = PBXGroup;
 			children = (
+				AC45868C297176BD0014A3E5 /* ViewModel */,
 				AC458687297175030014A3E5 /* View */,
 				AC458658297173670014A3E5 /* MyHabitAppApp.swift */,
 				AC45865A297173670014A3E5 /* ContentView.swift */,
@@ -145,6 +148,14 @@
 				AC45868A297176620014A3E5 /* AddNewTask.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		AC45868C297176BD0014A3E5 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				AC61F10029751DC80003C42E /* TaskViewModel.swift */,
+			);
+			path = ViewModel;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -278,6 +289,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				AC458662297173690014A3E5 /* Persistence.swift in Sources */,
+				AC61F10129751DC80003C42E /* TaskViewModel.swift in Sources */,
 				AC45865B297173670014A3E5 /* ContentView.swift in Sources */,
 				AC458665297173690014A3E5 /* MyHabitApp.xcdatamodeld in Sources */,
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,

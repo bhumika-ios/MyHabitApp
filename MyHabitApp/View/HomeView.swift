@@ -1,19 +1,20 @@
 //
-//  HomeView.swift
-//  MyHabitApp
+//  Home.swift
+//  TaskManager
 //
-//  Created by Bhumika Patel on 13/01/23.
+//  Created by Bhumika Patel on 10/05/22.
 //
 
 import SwiftUI
 
 struct HomeView: View {
-    @StateObject var taskModel: TaskViewModel = .init()
+    //@StateObject var taskModel: TaskkViewModel = .init()
+    @StateObject var taskModel: TaskkViewModel = .init()
     //MARK: Matched Geometry Names
     @Namespace var animation
     
 //    MARK: Fetching Task
-    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.deadline, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.taskDate, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
     
 //    MARK: Environment values
     @Environment(\.self) var env
@@ -47,7 +48,8 @@ struct HomeView: View {
                 
                 //MARK:Add button
                 Button{
-                    taskModel.openEditTask.toggle()
+                   // taskModel.openEditTask.toggle()
+                    taskModel.OpenEditTask.toggle()
                     
                 }label: {
                     Label{
@@ -86,7 +88,7 @@ struct HomeView: View {
 //                    .ignoresSafeArea()
 //                }
             }
-            .fullScreenCover(isPresented: $taskModel.openEditTask){
+                .fullScreenCover(isPresented: $taskModel.OpenEditTask){
                 taskModel.resetTaskData()
             } content: {
                 AddNewTask()
@@ -199,9 +201,9 @@ struct HomeView: View {
             let calendar = Calendar.current
             let filteredTasks = tasks.filter{
                 if let hour = calendar.dateComponents([.hour], from: date).hour,
-                   let taskHour = calendar.dateComponents([.hour], from: $0.deadline ?? Date()).hour,
+                   let taskHour = calendar.dateComponents([.hour], from: $0.taskDate ?? Date()).hour,
                    /// - current day
-                   hour == taskHour && calendar.isDate($0.deadline ?? Date(), inSameDayAs: currentDay){
+                   hour == taskHour && calendar.isDate($0.taskDate ?? Date(), inSameDayAs: currentDay){
                   /// - filtering tasks based on hour and also verifying whether the date is the same as the selected week day
                     return true
                 }
@@ -227,16 +229,16 @@ struct HomeView: View {
     }
 //    MARK: TaskView
 
-    @ViewBuilder
-    func TaskView()->some View{
-        LazyVStack(spacing: 20){
-           //MARK:
-            DynamicFilteredView(currentTab: taskModel.currentTab){ (task: Task) in
-                TaskRowView(task: task)
-            }
-        }
-        .padding(.top,20)
-    }
+ //   @ViewBuilder
+//    func TaskView()->some View{
+//        LazyVStack(spacing: 20){
+//           //MARK:
+//            DynamicFilteredView(currentTab: taskModel.currentTab){ (task: Task) in
+//                TaskRowView(task: task)
+//            }
+//        }
+//        .padding(.top,20)
+//    }
 //    @ViewBuilder
 //    func TaskRow(_ task: Task)->some View{
 //        VStack(alignment: .leading, spacing: 8){
@@ -277,7 +279,7 @@ struct HomeView: View {
 //                           .fill(.white.opacity(0.3))
 //                    }
               //  Spacer()
-                Text(task.title ?? "")
+                Text(task.taskName ?? "")
                     //.font(.title3)
                     .font(.system(size: 16))
                    // .foregroundColor(task.color)
@@ -288,7 +290,8 @@ struct HomeView: View {
                 if !task.isCompleted {
                     Button{
                         taskModel.editTask = task
-                        taskModel.openEditTask = true
+                   
+                        taskModel.OpenEditTask = true
                         taskModel.setupTask()
                     }label: {
                         Image(systemName: "square.and.pencil")
@@ -303,14 +306,14 @@ struct HomeView: View {
             HStack(alignment: .bottom, spacing: 0){
                 VStack(alignment: .leading, spacing: 5){
                     Label {
-                        Text((task.deadline ?? Date()).formatted(date: .long, time: .omitted))
+                        Text((task.taskDate ?? Date()).formatted(date: .long, time: .omitted))
                     } icon: {
                         Image(systemName: "calendar")
                     }
                     .font(.caption)
                     
                     Label {
-                        Text((task.deadline ?? Date()).formatted(date: .omitted, time: .shortened))
+                        Text((task.taskDate ?? Date()).formatted(date: .omitted, time: .shortened))
                     } icon: {
                         Image(systemName: "clock")
                     }
@@ -340,12 +343,12 @@ struct HomeView: View {
         .background{
             ZStack(alignment: .leading){
                 Rectangle()
-                    .fill(Color(task.color ?? "Yellow"))
+                    .fill(Color(task.taskColor ?? "Yellow"))
                     .frame(width: 5)
                 //   RoundedRectangle(cornerRadius: 12, style: .continuous)
                 //  .fill(Color(task.color.opacity(0.25) as! CGColor))
                 Rectangle()
-                    .fill(Color(task.color ?? "Yellow" )).opacity(0.25)
+                    .fill(Color(task.taskColor ?? "Yellow" )).opacity(0.25)
             }
         }
     }
@@ -367,31 +370,31 @@ struct HomeView: View {
         }
     }
     //MARK: Custom Segmented Bar
-    @ViewBuilder
-    func CustomSegmentedBar()->some View{
-        let tabs = ["Today", "Upcoming", "Task Done", "Failed Task"]// In case missed card
-        HStack(spacing: 20){
-            ForEach(tabs,id: \.self){tab in
-                Text(tab)
-                    .font(.callout)
-                    .fontWeight(.semibold)
-                    .scaleEffect(0.9)
-                    .foregroundColor(taskModel.currentTab == tab ? .white: .black)
-                    .padding(.vertical,6)
-                    .background{
-                        if taskModel.currentTab == tab{
-                            Capsule()
-                                .fill(.black)
-                                .matchedGeometryEffect(id: "TAB", in: animation)
-                        }
-                    }
-                    .contentShape(Capsule())
-                    .onTapGesture {
-                        withAnimation{taskModel.currentTab = tab}
-                    }
-            }
-        }
-    }
+//    @ViewBuilder
+//    func CustomSegmentedBar()->some View{
+//        let tabs = ["Today", "Upcoming", "Task Done", "Failed Task"]// In case missed card
+//        HStack(spacing: 20){
+//            ForEach(tabs,id: \.self){tab in
+//                Text(tab)
+//                    .font(.callout)
+//                    .fontWeight(.semibold)
+//                    .scaleEffect(0.9)
+//                    .foregroundColor(taskModel.currentTab == tab ? .white: .black)
+//                    .padding(.vertical,6)
+//                    .background{
+//                        if taskModel.currentTab == tab{
+//                            Capsule()
+//                                .fill(.black)
+//                                .matchedGeometryEffect(id: "TAB", in: animation)
+//                        }
+//                    }
+//                    .contentShape(Capsule())
+//                    .onTapGesture {
+//                        withAnimation{taskModel.currentTab = tab}
+//                    }
+//            }
+//        }
+//    }
 }
 
 struct HomeView_Previews: PreviewProvider {
@@ -399,3 +402,59 @@ struct HomeView_Previews: PreviewProvider {
         HomeView()
     }
 }
+// MARK: View Extensions
+extension View{
+    func hAlign(_ alignment: Alignment)->some View{
+        self
+            .frame(maxWidth: .infinity, alignment: alignment)
+    }
+    func vAlign(_ alignment: Alignment)->some View{
+        self
+            .frame(maxHeight: .infinity, alignment: alignment)
+    }
+}
+
+// MARK: Date Extension
+extension Date{
+    func toString(_ format: String)->String{
+        let formatter = DateFormatter()
+        formatter.dateFormat = format
+        return formatter.string(from: self)
+    }
+}
+//MARK: Calendar extension
+extension Calendar{
+    ///- return 24 hours in a day
+    /// so when we get the start of the day, which means 0:00 with the help of this we can easily retrive the 24 - hours dates.
+    var hours: [Date]{
+        let startOfDay = self.startOfDay(for: Date())
+        var hours: [Date] = []
+        for index in 0..<24{
+            if let date = self.date(byAdding: .hour, value: index, to: startOfDay){
+                hours.append(date)
+            }
+        }
+        return hours
+    }
+    ///- Retuen current week in array format
+    var currentWeek: [WeekDay]{
+        guard let firstWeekDay = self.dateInterval(of: .weekOfMonth, for: Date())?.start else{ return []}
+        var week: [WeekDay] = []
+        for index in 0..<7{
+            if let day = self.date(byAdding: .day, value: index, to: firstWeekDay){
+                let weekDaySymbol: String = day.toString("EEEE") // - EEEE return the weekday symbol (e.g , Monday) from the given date
+                let isToday = self.isDateInToday(day)
+                // so the logic is to retrive the week first day and with the calendars adding method we are getting the subsequent seven dates from the strat date
+                week.append(.init(string: weekDaySymbol, date: day))
+            }
+        }
+        return week
+    }
+    struct WeekDay: Identifiable{
+        var id: UUID = .init()
+        var string: String
+        var date: Date
+        var isToday: Bool = false
+    }
+}
+
