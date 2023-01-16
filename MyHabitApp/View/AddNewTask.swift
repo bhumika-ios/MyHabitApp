@@ -9,7 +9,7 @@ import SwiftUI
 
 struct AddNewTask: View {
   
-    @EnvironmentObject var taskModel: TaskkViewModel
+    @EnvironmentObject var taskModel: TaskViewModel
     //MARK:All environment values in one variable
     @Environment(\.self) var env
     @Namespace var animation
@@ -221,6 +221,6 @@ struct AddNewTask_Previews: PreviewProvider {
     static var previews: some View {
         AddNewTask()
           
-            .environmentObject(TaskkViewModel())
+            .environmentObject(TaskViewModel())
     }
 }

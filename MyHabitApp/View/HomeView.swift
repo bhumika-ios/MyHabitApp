@@ -9,9 +9,10 @@ import SwiftUI
 
 struct HomeView: View {
     //@StateObject var taskModel: TaskkViewModel = .init()
-    @StateObject var taskModel: TaskkViewModel = .init()
+    @StateObject var taskModel: TaskViewModel = .init()
     //MARK: Matched Geometry Names
     @Namespace var animation
+  
     
 //    MARK: Fetching Task
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.taskDate, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
@@ -287,7 +288,7 @@ struct HomeView: View {
                 Spacer()
 //                MARK:  Edit button only for noncomleted task
                 //&& taskModel.currentTab != "Failed Task"
-                if !task.isCompleted {
+               // if !task.isCompleted {
                     Button{
                         taskModel.editTask = task
                    
@@ -297,7 +298,7 @@ struct HomeView: View {
                         Image(systemName: "square.and.pencil")
                             .foregroundColor(.black)
                     }
-                }
+             //   }
                 
             }
             
@@ -320,19 +321,32 @@ struct HomeView: View {
                     .font(.caption)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
+               // CheckBoxView().environmentObject(taskModel)
                 //&& taskModel.currentTab != "Failed Task"
-                if !task.isCompleted {
-                    Button{
-//                        MARK: updating Coredata
-                        task.isCompleted.toggle()
-                        try? env.managedObjectContext.save()
-                    } label: {
-                        Circle()
-                            .strokeBorder(.black,lineWidth: 1.5)
-                            .frame(width: 20, height: 20)
-                            .contentShape(Circle())
+                Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
+                    .onTapGesture {
+                        
+                            task.isCompleted.toggle()
+                        
                     }
-                }
+//                if !taskModel.markTask {
+//                    Button{
+////                        MARK: updating Coredata
+//                       // task.isCompleted = true
+//                        taskModel.markTask.toggle()
+//                        try? context.save()
+////                        try? env.managedObjectContext.save()
+//                    } label: {
+////                        Circle()
+////                            .strokeBorder(.black,lineWidth: 1.5)
+////                            .frame(width: 20, height: 20)
+////                            .contentShape(Circle())
+//                        Image(systemName: taskModel.markTask ? "checkmark.circle.fill" : "circle")
+//                          .resizable()
+//                          .frame(width: 20, height: 20)
+//                          .accentColor(.black)
+//                    }
+//                }
             }
             
         }
@@ -457,4 +471,3 @@ extension Calendar{
         var isToday: Bool = false
     }
 }
-

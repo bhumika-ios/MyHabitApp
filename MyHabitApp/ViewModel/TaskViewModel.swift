@@ -8,14 +8,16 @@
 import SwiftUI
 import CoreData
 
-class TaskkViewModel: ObservableObject{
+class TaskViewModel: ObservableObject{
     @Published var OpenEditTask: Bool = false
+    @Published var markTask: Bool = false
     @Published var taskTitle: String = ""
     @Published var taskColor: String = "Yellow"
     @Published var taskDeadLine: Date = Date()
     @Published var showDatePicker: Bool = false
     //    MARK: Editing exiting task data
     @Published var editTask: Task?
+    @Published var tasks: Task?
     
     //MARK: Adding Task to core data
     func addTask(context: NSManagedObjectContext)->Bool{
@@ -56,4 +58,5 @@ class TaskkViewModel: ObservableObject{
                 taskDeadLine = editTask.taskDate ?? Date()
             }
         }
+   
 }
