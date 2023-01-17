@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct AddNewTask: View {
-  
+    let placeholder: String
     @EnvironmentObject var taskModel: TaskViewModel
     //MARK:All environment values in one variable
     @Environment(\.self) var env
@@ -45,28 +45,49 @@ struct AddNewTask: View {
                         }
                         .opacity(taskModel.editTask == nil ? 0 : 1)
                     }
-                VStack(alignment: .leading, spacing: 12){
-                    Text("Task Title")
-                        .font(.title3)
-                        .foregroundColor(.gray)
+                ZStack(alignment: .leading){
+                    Text(placeholder)
+                        .font(.system(self.taskModel.taskTitle.isEmpty ? .title2 : .title3, design: .rounded))
+//                        .font(.title3)
+                        .foregroundColor(.black.opacity(0.5))
+                        //.padding(.horizontal)
+                        .background(Color.white)
+                        .offset(y: self.taskModel.taskTitle.isEmpty ? 0 : -28)
+                        .scaleEffect(self.taskModel.taskTitle.isEmpty ? 1 : 0.9, anchor: .leading)
+//                        .foregroundColor(.gray)
                     TextField("", text: $taskModel.taskTitle)
-                        .frame(maxWidth: .infinity)
-                        .padding(.top,1)
-                    Rectangle()
-                        .fill(.black.opacity(0.7))
-                        .frame(height: 1)
+                        .font(.system(.title3, design: .rounded))
+                        .foregroundColor(.black)
+                       
+//                        .frame(maxWidth: .infinity)
+//                        .padding(.top,1)
+//                    Rectangle()
+//                        .fill(.black.opacity(0.7))
+//                        .frame(height: 1)
+                      
                 }
+                .animation(.easeOut)
+                .padding(.horizontal)
+                .padding(.vertical, 10)
+                .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(self.taskModel.taskTitle.isEmpty ? .black.opacity(0.5) : .black, lineWidth: 1)
+                )
                 .padding(.vertical)
                 VStack(alignment: .leading, spacing: 12){
-                    Text("Date")
-                        .font(.title3)
-                        .foregroundColor(.gray)
-                    
+//                    Text("Date")
+//                        .font(.title3)
+//                        .foregroundColor(.black.opacity(0.5))
+//                        .background(Color.white)
+//                        .offset(y: -28)
+//                        .scaleEffect(0.9, anchor: .leading)
                     Text(taskModel.taskDeadLine.formatted(date: .abbreviated, time: .omitted) + ", " + taskModel.taskDeadLine.formatted(date: .omitted, time: .shortened))
-                    
-                        .font(.callout)
+                        .padding()
+                        .font(.title3)
+                        .foregroundColor(.black)
                         .fontWeight(.semibold)
                         .padding(.top,8)
+                        .offset(y: 9)
 //                    Rectangle()
 //                        .fill(.black.opacity(0.7))
 //                        .frame(height: 1)
@@ -79,13 +100,17 @@ struct AddNewTask: View {
                         Image(systemName: "calendar")
                             .foregroundColor(.black)
                     }
+                    .offset(x: -5,y: -10)
                 }
                 .overlay(alignment: .bottom){
-                    Rectangle()
-                        .fill(.black.opacity(0.7))
-                        .frame(height: 1)
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.black.opacity(0.5), lineWidth: 1)
+                       // .fill(.black.opacity(0.5))
+                        .frame(width: 360, height:45)
                         .offset(y: 5)
                 }
+                .padding(.bottom, 15)
+                
                 VStack(alignment: .leading, spacing: 12){
                     Text("Task Color")
                         .font(.title3)
@@ -129,38 +154,7 @@ struct AddNewTask: View {
                 .padding(.top,10)
               
                 
-                // MARK: sample TaskType
-//                let taskTypes: [String] = ["Basic", "Urgent", "Important"]
-//                VStack(alignment: .leading, spacing: 12){
-//                    Text("TaskType")
-//                        .font(.caption)
-//                        .foregroundColor(.gray)
-//                    HStack(spacing: 12){
-//                        ForEach(taskTypes,id: \.self){type in
-//                            Text(type)
-//                                .font(.callout)
-//                                .padding(.vertical,8)
-//                                .frame(maxWidth: .infinity)
-//                                .foregroundColor(taskModel.taskType == type ? .white : .black)
-//                                .background{
-//                                    if taskModel.taskType == type{
-//                                        Capsule()
-//                                            .fill(.black)
-//                                            .matchedGeometryEffect(id: "TYPE", in: animation)
-//                                    }else{
-//                                        Capsule()
-//                                            .strokeBorder(.black)
-//                                    }
-//                                }
-//                            // animation effect
-//                                .contentShape(Capsule())
-//                                .onTapGesture {
-//                                    withAnimation{taskModel.taskType = type}
-//                                }
-//                        }
-//                    }
-//                    .padding(.top,8)
-//                }
+               
                 .padding(.vertical, 10)
                 
               //  Divider()
@@ -227,7 +221,7 @@ struct AddNewTask: View {
 
 struct AddNewTask_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewTask()
+        AddNewTask(placeholder: "Task Name")
           
             .environmentObject(TaskViewModel())
     }
