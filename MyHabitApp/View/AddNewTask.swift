@@ -9,6 +9,8 @@ import SwiftUI
 
 struct AddNewTask: View {
     let placeholder: String
+    let placeholder2: String
+    @State private var color: Color = .blue
     @EnvironmentObject var taskModel: TaskViewModel
     //MARK:All environment values in one variable
     @Environment(\.self) var env
@@ -16,35 +18,40 @@ struct AddNewTask: View {
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading,spacing: 10){
-                Text("Add Task")
-                    .font(.title3.bold())
-                    .frame(maxWidth: .infinity)
-                    .overlay(alignment: .leading){
-                        Button{
-                            env.dismiss()
-                        }label: {
-                            Image(systemName: "chevron.left")
-                                .font(.title3)
-                                .foregroundColor(.black)
-                        }
-                    }
-                
-                    .overlay(alignment: .trailing){
-                        Button{
-                            if let editTask = taskModel.editTask{
-                                env.managedObjectContext.delete(editTask)
-                                try? env.managedObjectContext.save()
+                VStack{
+                    Text("Add Task")
+                        .font(.title3.bold())
+                        .frame(maxWidth: .infinity)
+                        .overlay(alignment: .leading){
+                            Button{
                                 env.dismiss()
+                            }label: {
+                                Image(systemName: "chevron.left")
+                                    .font(.title3)
+                                    .foregroundColor(.black)
                             }
-                            
-                            
-                        }label: {
-                            Image(systemName: "trash")
-                                .font(.title3)
-                                .foregroundColor(.red)
+                            //.offset(x: -15)
                         }
-                        .opacity(taskModel.editTask == nil ? 0 : 1)
-                    }
+                    
+                        .overlay(alignment: .trailing){
+                            Button{
+                                if let editTask = taskModel.editTask{
+                                    env.managedObjectContext.delete(editTask)
+                                    try? env.managedObjectContext.save()
+                                    env.dismiss()
+                                }
+                                
+                                
+                            }label: {
+                                Image(systemName: "trash")
+                                    .font(.title3)
+                                    .foregroundColor(.red)
+                            }
+                            .opacity(taskModel.editTask == nil ? 0 : 1)
+                        }
+                }
+                Spacer()
+                
                 ZStack(alignment: .leading){
                     Text(placeholder)
                         .font(.system(self.taskModel.taskTitle.isEmpty ? .title2 : .title3, design: .rounded))
@@ -73,7 +80,35 @@ struct AddNewTask: View {
                 RoundedRectangle(cornerRadius: 10)
                     .stroke(self.taskModel.taskTitle.isEmpty ? .black.opacity(0.5) : .black, lineWidth: 1)
                 )
-                .padding(.vertical)
+                ZStack(alignment: .leading){
+                    Text(placeholder2)
+                        .font(.system(self.taskModel.taskDescription.isEmpty ? .title2 : .title3, design: .rounded))
+//                        .font(.title3)
+                        .foregroundColor(.black.opacity(0.5))
+                        //.padding(.horizontal)
+                        .background(Color.white)
+                        .offset(y: self.taskModel.taskDescription.isEmpty ? 0 : -28)
+                        .scaleEffect(self.taskModel.taskDescription.isEmpty ? 1 : 0.9, anchor: .leading)
+//                        .foregroundColor(.gray)
+                    TextField("", text: $taskModel.taskDescription)
+                        .font(.system(.title3, design: .rounded))
+                        .foregroundColor(.black)
+                       
+//                        .frame(maxWidth: .infinity)
+//                        .padding(.top,1)
+//                    Rectangle()
+//                        .fill(.black.opacity(0.7))
+//                        .frame(height: 1)
+                      
+                }
+                .animation(.easeOut)
+                .padding(.horizontal)
+                .padding(.vertical, 10)
+                .background(
+                RoundedRectangle(cornerRadius: 10)
+                    .stroke(self.taskModel.taskDescription.isEmpty ? .black.opacity(0.5) : .black, lineWidth: 1)
+                )
+                .padding(.vertical,10)
                 VStack(alignment: .leading, spacing: 12){
 //                    Text("Date")
 //                        .font(.title3)
@@ -87,11 +122,12 @@ struct AddNewTask: View {
                         .foregroundColor(.black)
                         .fontWeight(.semibold)
                         .padding(.top,8)
-                        .offset(y: 9)
+                        .offset(y: 1.5)
 //                    Rectangle()
 //                        .fill(.black.opacity(0.7))
 //                        .frame(height: 1)
                 }
+                .padding(.vertical,-10)
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .overlay(alignment: .bottomTrailing){
                     Button{
@@ -110,38 +146,71 @@ struct AddNewTask: View {
                         .offset(y: 5)
                 }
                 .padding(.bottom, 15)
-                
                 VStack(alignment: .leading, spacing: 12){
-                    Text("Task Color")
-                        .font(.title3)
-                        .foregroundColor(.gray)
-                    
-                    //MARK:simple card colors
                     let colors: [String] = ["Yellow", "Green", "Blue","Purple", "Red", "Orange","Pink","Sky","Till"]
-                    LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing:20), count: 3), spacing: 15){
-                        ForEach(colors,id: \.self){ color in
-                            Rectangle()
-                                .fill(Color(color))
-                                .frame(width: 70, height: 25)
-                                .background{
-                                    if taskModel.taskColor == color{
-                                        Rectangle()
-                                            .strokeBorder(.gray)
-                                            .padding(-3)
-                                    }
-                                }
-                                .contentShape(Circle())
-                                .onTapGesture {
-                                    taskModel.taskColor = color
-                                }
+                    ScrollView(.horizontal, showsIndicators: false){
+                        HStack(spacing: 15){
                             
+                            ForEach(colors,id: \.self){ color in
+                                Circle()
+                                    .fill(Color(color))
+                                    .frame(width: 25, height: 25)
+                                    .background{
+                                        if taskModel.taskColor == color{
+                                            Circle()
+                                                .strokeBorder(.gray)
+                                                .padding(-3)
+                                        }
+                                    }
+                                    .contentShape(Circle())
+                                    .onTapGesture {
+                                        taskModel.taskColor = color
+                                    }
+                            }
                         }
-                        
-                        
-                        
+                        .padding()
                     }
-                    .padding(.top,10)
                 }
+//                ZStack{
+//                    VStack{
+//                        Image(systemName: "rectangle.fill")
+//                            .resizable()
+//                            .frame(width: 100, height: 20)
+//                            .foregroundColor(color)
+//                        ColorPicker("Color Picker", selection: $color)
+//                    }
+//                }
+//                VStack(alignment: .leading, spacing: 12){
+//                    Text("Task Color")
+//                        .font(.title3)
+//                        .foregroundColor(.gray)
+//
+//                    //MARK:simple card colors
+//                    let colors: [String] = ["Yellow", "Green", "Blue","Purple", "Red", "Orange","Pink","Sky","Till"]
+//                    LazyVGrid(columns: Array(repeating: .init(.flexible(), spacing:20), count: 3), spacing: 15){
+//                        ForEach(colors,id: \.self){ color in
+//                            Circle()
+//                                .fill(Color(color))
+//                                .frame(width: 70, height: 25)
+//                                .background{
+//                                    if taskModel.taskColor == color{
+//                                        Circle()
+//                                            .strokeBorder(.gray)
+//                                            .padding(-3)
+//                                    }
+//                                }
+//                                .contentShape(Circle())
+//                                .onTapGesture {
+//                                    taskModel.taskColor = color
+//                                }
+//
+//                        }
+//
+//
+//
+//                    }
+//                    .padding(.top,10)
+//                }
                 .frame(maxWidth: .infinity, alignment: .leading)
                 .padding(.top,30)
                 
@@ -151,11 +220,11 @@ struct AddNewTask: View {
                
                
                 
-                .padding(.top,10)
+               // .padding(.top,10)
               
                 
                
-                .padding(.vertical, 10)
+               // .padding(.vertical, 10)
                 
               //  Divider()
                 
@@ -221,7 +290,7 @@ struct AddNewTask: View {
 
 struct AddNewTask_Previews: PreviewProvider {
     static var previews: some View {
-        AddNewTask(placeholder: "Task Name")
+        AddNewTask(placeholder: "Task Name", placeholder2: "Task Description")
           
             .environmentObject(TaskViewModel())
     }

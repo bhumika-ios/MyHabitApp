@@ -13,6 +13,7 @@ class TaskViewModel: ObservableObject{
     @Published var OpenHomeTask: Bool = false
     @Published var markTask: Bool = false
     @Published var taskTitle: String = ""
+    @Published var taskDescription: String = ""
     @Published var taskColor: String = "Yellow"
     @Published var taskDeadLine: Date = Date()
     @Published var showDatePicker: Bool = false
@@ -32,6 +33,7 @@ class TaskViewModel: ObservableObject{
         }
         
         task.taskName = taskTitle
+        task.taskDescription = taskDescription
         task.taskColor = taskColor
         task.taskDate = taskDeadLine
         // task.type = taskType
@@ -47,6 +49,7 @@ class TaskViewModel: ObservableObject{
        // taskType = "Basic"
         taskColor = "Yellow"
         taskTitle = ""
+        taskDescription = ""
         taskDeadLine = Date()
     }
     //    MARK: existing setup data
@@ -56,6 +59,7 @@ class TaskViewModel: ObservableObject{
                // taskType = editTask.type ?? "Basic"
                 taskColor = editTask.taskColor ?? "Yellow"
                 taskTitle = editTask.taskName ?? ""
+                taskDescription = editTask.taskDescription ?? ""
                 taskDeadLine = editTask.taskDate ?? Date()
             }
         }

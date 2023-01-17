@@ -322,13 +322,32 @@ struct HomeView: View {
                     .fullScreenCover(isPresented: $taskModel.OpenEditTask){
                     taskModel.resetTaskData()
                 } content: {
-                    AddNewTask(placeholder: "Task Name")
+                    AddNewTask(placeholder: "Task Name", placeholder2: "Task Description")
                         .environmentObject(taskModel)
                 }
+                
             }
+           //.padding()
+            VStack(alignment: .leading, spacing: 0){
+                if task.isCompleted{
+                    Text(task.taskDescription ?? "")
+                    //.font(.title3)
+                        .font(.system(size: 12))
+                    // .foregroundColor(task.color)
+                       // .padding(.vertical,10)
+                        .strikethrough()
+                    // .strikethrough(true, color: Color.red)
+                }else{
+                    Text(task.taskDescription ?? "")
+                    //.font(.title3)
+                        .font(.system(size: 12))
+                    // .foregroundColor(task.color)
+                       // .padding(.vertical,10)
+                }
+            }
+            .padding(.vertical,-12)
             
-           
-            
+        
             HStack(alignment: .bottom, spacing: 0){
                 VStack(alignment: .leading, spacing: 5){
                     Label {

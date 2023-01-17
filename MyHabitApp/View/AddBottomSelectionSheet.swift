@@ -68,7 +68,7 @@ struct AddBottomSelectionSheet: View {
         .fullScreenCover(isPresented: $taskModel.OpenEditTask){
         taskModel.resetTaskData()
     } content: {
-        AddNewTask(placeholder: "Task Name")
+        AddNewTask(placeholder: "Task Name", placeholder2: "Task Description")
             .environmentObject(taskModel)
     }
       
