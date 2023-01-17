@@ -170,7 +170,8 @@ struct AddNewTask: View {
                 Button{
                     //MARK: If success closing view
                     if taskModel.addTask(context: env.managedObjectContext){
-                        env.dismiss()
+                        taskModel.OpenHomeTask = true
+                        //env.dismiss()
                     }
                 } label: {
                     Text("SaveTask")
@@ -214,6 +215,13 @@ struct AddNewTask: View {
                 .animation(.easeInOut, value: taskModel.showDatePicker)
             }
         }
+        .fullScreenCover(isPresented: $taskModel.OpenHomeTask){
+        }content: {
+            HomeView()
+                .environmentObject(taskModel)
+        }
+               // .presentationDetents([.large, .large])
+    
     }
 }
 

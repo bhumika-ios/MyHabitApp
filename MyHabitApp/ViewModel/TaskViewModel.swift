@@ -10,6 +10,7 @@ import CoreData
 
 class TaskViewModel: ObservableObject{
     @Published var OpenEditTask: Bool = false
+    @Published var OpenHomeTask: Bool = false
     @Published var markTask: Bool = false
     @Published var taskTitle: String = ""
     @Published var taskColor: String = "Yellow"

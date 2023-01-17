@@ -49,7 +49,7 @@ struct HomeView: View {
                 
                 //MARK:Add button
                 Button{
-                   // taskModel.openEditTask.toggle()
+                    //taskModel.OpenEditTask.toggle()
                     showAddBottomSheet.toggle()
                     
                 }label: {
@@ -89,7 +89,7 @@ struct HomeView: View {
 //                    .ignoresSafeArea()
 //                }
             }
-           
+//
 //                .fullScreenCover(isPresented: $taskModel.OpenEditTask){
 //                taskModel.resetTaskData()
 //            } content: {
@@ -291,7 +291,7 @@ struct HomeView: View {
                     .font(.system(size: 16))
                    // .foregroundColor(task.color)
                     .padding(.vertical,10)
-                    strikethrough()
+                    .strikethrough()
                    // .strikethrough(true, color: Color.red)
                 }else{
                     Text(task.taskName ?? "")
@@ -316,7 +316,12 @@ struct HomeView: View {
                             .foregroundColor(.black)
                     }
              //   }
-                
+                    .fullScreenCover(isPresented: $taskModel.OpenEditTask){
+                    taskModel.resetTaskData()
+                } content: {
+                    AddNewTask()
+                        .environmentObject(taskModel)
+                }
             }
             
            
