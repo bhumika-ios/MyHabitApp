@@ -7,38 +7,36 @@
 
 import SwiftUI
 
-struct TabView: View {
+struct TabHomeView: View {
     var body: some View {
-        VStack{
-           TabHomeView()
+        TabView {
+           HomeView()
+                .tabItem{
+                    Image(systemName: "list.bullet.rectangle")
+                    Text("Today")
+                }
+            Text("Habit")
+                .tabItem{
+                    Image(systemName: "heart.circle")
+                    Text("Habit")
+                }
+            Text("Task")
+                .tabItem{
+                    Image(systemName: "checkmark.circle")
+                    Text("Task")
+                }
+            Text("Setting")
+                .tabItem{
+                    Image(systemName: "gearshape")
+                    Text("Setting")
+                }
         }
+        .tint(Color("Pink"))
     }
 }
 
-struct TabView_Previews: PreviewProvider {
+struct TabHomeView_Previews: PreviewProvider {
     static var previews: some View {
-        TabView()
+        TabHomeView()
     }
 }
-
-struct TabHomeView: View{
-    
-    var body: some View{
-        VStack(spacing: 0){
-            GeometryReader{_ in
-                ZStack{
-                    ///-Tabs....
-                
-                }
-            }
-            ///- Tabview
-            HStack(spacing: 0){
-                ForEach(tabs, id: \.self){tab in
-                    
-                }
-            }
-        }
-    }
-}
-// Both Title Image name
-var tabs = ["Today","Habit","Task","Setting"]

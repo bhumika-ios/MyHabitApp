@@ -22,6 +22,7 @@ struct HomeView: View {
     @State var isOrdinary: Bool = true
     @State private var currentDay: Date = .init()
     var body: some View {
+      //  NavigationStack{
         ZStack{
 //            ScrollView(.vertical, showsIndicators: false){
                 VStack {
@@ -70,8 +71,8 @@ struct HomeView: View {
                     .padding(.vertical, 12)
                     .padding(.horizontal)
                     .background(Color("Pink"))
-                    .frame(width: 52,height: 55)
-                    .cornerRadius(20)
+                    .frame(width: 43,height: 43)
+                    .cornerRadius(15)
                     .padding()
                     
                 }
@@ -105,95 +106,97 @@ struct HomeView: View {
     }
     ///- HeaderView
     @ViewBuilder
-    func HeaderView()->some View{
-        VStack{
-            HStack{
-                VStack(alignment: .leading, spacing: 6){
-                    Text("Today")
-                        .font(.system(size: 18))
-                     //   .laila(22, .light)
-                    
-                    Text("Welcome, User")
-                        .font(.system(size: 12))
-                     //   .laila(14, .light)
+        func HeaderView()->some View{
+            VStack{
+                HStack{
+                    VStack(alignment: .leading, spacing: 6){
+                        Text("Today")
+                            .font(.system(size: 18))
+                        //   .laila(22, .light)
+                        
+                        Text("Welcome, User")
+                            .font(.system(size: 12))
+                        //   .laila(14, .light)
+                    }
+                    .hAlign(.leading)
                 }
-                .hAlign(.leading)
+                // - Today DAte in string
+                Text(Date().toString("MMM YYYY"))
+                // .laila(16, .medium)
+                    .font(.system(size: 14))
+                    .hAlign(.leading)
+                    .padding(.top, 15)
+                
+                ///- Current week Row
+                WeekRow()
             }
-            // - Today DAte in string
-            Text(Date().toString("MMM YYYY"))
-               // .laila(16, .medium)
-                .font(.system(size: 14))
-                .hAlign(.leading)
-                .padding(.top, 15)
-            
-            ///- Current week Row
-            WeekRow()
-        }
-        .padding(15)
-        .background{
-            
-            VStack(spacing: 0){
-                Color.white
-                ///- Gradient opacity background
-                /// give a nice gradient effect at its bottom.
-                Rectangle()
-                    .fill(.linearGradient(colors: [
-                        .white,
-                        .clear], startPoint: .top, endPoint: .bottom))
-                    .frame(height: 20)
+            .padding(15)
+            .background{
+                
+                VStack(spacing: 0){
+                    Color.white
+                    ///- Gradient opacity background
+                    /// give a nice gradient effect at its bottom.
+                    Rectangle()
+                        .fill(.linearGradient(colors: [
+                            .white,
+                            .clear], startPoint: .top, endPoint: .bottom))
+                        .frame(height: 20)
+                }
+                .ignoresSafeArea()
             }
-            .ignoresSafeArea()
-        }
+        
     }
     @ViewBuilder
-    func WeekRow()->some View{
-        HStack(spacing: 0){
-            ForEach(Calendar.current.currentWeek){weekDay in
-                let status = Calendar.current.isDate(weekDay.date, inSameDayAs: currentDay)
-                VStack(spacing: 2){
-                   // Text(weekDay.string)
-                    Text(weekDay.string.prefix(3))
-                     //   .laila(14, .medium)
-                        .font(.system(size: 14))
-                    Text(weekDay.date.toString("dd"))
-                       // .laila(16, status ? .medium : .regular)
-                        .font(.system(size: 14))
-                    Rectangle()
-                        .fill(.black)
-                        .cornerRadius(20)
-                        .frame(width: 15, height: 2)
-                        .opacity(status ? 1 : 0)
-                        .offset(y:4)
-                }
-                ///- Highlighting the currently active day
-               .foregroundColor(status ? Color(.white) : .gray)
-                // capsule shape
-                .frame(width: 45, height: 50)
-                .background{
-                    ZStack{
-                        if status{
-                            RoundedRectangle(cornerRadius: 15)
-                                .fill(status ? Color("Pink") : Color.gray)
-                              
+        func WeekRow()->some View{
+            HStack(spacing: 0){
+                ForEach(Calendar.current.currentWeek){weekDay in
+                    let status = Calendar.current.isDate(weekDay.date, inSameDayAs: currentDay)
+                    VStack(spacing: 2){
+                        // Text(weekDay.string)
+                        Text(weekDay.string.prefix(3))
+                        //   .laila(14, .medium)
+                            .font(.system(size: 14))
+                        Text(weekDay.date.toString("dd"))
+                        // .laila(16, status ? .medium : .regular)
+                            .font(.system(size: 14))
+                        Rectangle()
+                            .fill(.black)
+                            .cornerRadius(20)
+                            .frame(width: 15, height: 2)
+                            .opacity(status ? 1 : 0)
+                            .offset(y:4)
+                    }
+                    ///- Highlighting the currently active day
+                    .foregroundColor(status ? Color(.white) : .gray)
+                    // capsule shape
+                    .frame(width: 45, height: 50)
+                    .background{
+                        ZStack{
+                            if status{
+                                RoundedRectangle(cornerRadius: 15)
+                                    .fill(status ? Color("Pink") : Color.gray)
+                                
+                            }
+                            
                         }
-                        
                     }
-                }
-                .hAlign(.center)
-                .contentShape(Rectangle())
-                .onTapGesture {
-//                    withAnimation(.easeInOut(duration: 0.3)){
-//                        currentDay = weekDay.date
-//                    }
-                    withAnimation{
-                        currentDay = weekDay.date
+                    .hAlign(.center)
+                    .contentShape(Rectangle())
+                    .onTapGesture {
+                        //                    withAnimation(.easeInOut(duration: 0.3)){
+                        //                        currentDay = weekDay.date
+                        //                    }
+                        withAnimation{
+                            currentDay = weekDay.date
+                        }
                     }
+                    
                 }
-                
             }
-        }
-        .padding(.vertical,10)
-        .padding(.horizontal, -15)
+            .padding(.vertical,10)
+            .padding(.horizontal, -15)
+        
     }
     /// - timelineview row
     @ViewBuilder

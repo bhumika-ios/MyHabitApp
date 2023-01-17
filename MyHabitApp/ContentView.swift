@@ -12,8 +12,8 @@ struct ContentView: View {
   
     var body: some View {
         NavigationView{
-            HomeView()
-                .navigationBarTitleDisplayMode(.inline)
+            TabHomeView()
+           //     .navigationBarTitleDisplayMode(.inline)
         }
     }
 }
