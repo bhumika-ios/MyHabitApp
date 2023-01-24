@@ -39,6 +39,16 @@ struct AddCategory: View {
                                         .frame(width: 45, height: 45)
                                         .opacity(0.3)
                                 }
+                                Circle()
+                                    .foregroundColor(cl)
+                                    .frame(width: 30, height: 30)
+                                    .opacity(15)
+                                
+                            }
+                            .onTapGesture {
+                                withAnimation{
+                                    self.categoryModel.color = cl
+                                }
                             }
                         }
                     }
