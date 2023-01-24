@@ -5,6 +5,7 @@
 //  Created by Bhumika Patel on 10/05/22.
 //
 
+
 import SwiftUI
 
 struct HomeView: View {
@@ -309,22 +310,22 @@ struct HomeView: View {
 //                MARK:  Edit button only for noncomleted task
                 //&& taskModel.currentTab != "Failed Task"
                // if !task.isCompleted {
-                    Button{
-                        taskModel.editTask = task
-                   
-                        taskModel.OpenEditTask = true
-                        taskModel.setupTask()
-                    }label: {
-                        Image(systemName: "square.and.pencil")
-                            .foregroundColor(.black)
-                    }
+//                    Button{
+//                        taskModel.editTask = task
+//
+//                        taskModel.OpenEditTask = true
+//                        taskModel.setupTask()
+//                    }label: {
+//                        Image(systemName: "square.and.pencil")
+//                            .foregroundColor(.black)
+//                    }
              //   }
-                    .fullScreenCover(isPresented: $taskModel.OpenEditTask){
-                    taskModel.resetTaskData()
-                } content: {
-                    AddNewTask(placeholder: "Task Name", placeholder2: "Task Description")
-                        .environmentObject(taskModel)
-                }
+//                    .fullScreenCover(isPresented: $taskModel.OpenEditTask){
+//                    taskModel.resetTaskData()
+//                } content: {
+//                    AddNewTask(placeholder: "Task Name", placeholder2: "Task Description")
+//                        .environmentObject(taskModel)
+//                }
                 
             }
            //.padding()
@@ -408,7 +409,19 @@ struct HomeView: View {
                 Rectangle()
                     .fill(Color(task.taskColor ?? "Yellow" )).opacity(0.25)
             }
+            .onTapGesture {
+                taskModel.editTask = task
+           
+                taskModel.OpenEditTask = true
+                taskModel.setupTask()
+            }
         }
+        .fullScreenCover(isPresented: $taskModel.OpenEditTask){
+        taskModel.resetTaskData()
+    } content: {
+        AddNewTask(placeholder: "Task Name", placeholder2: "Task Description")
+            .environmentObject(taskModel)
+    }
     }
     func TimelineView()->some View{
         ScrollViewReader{ proxy in
