@@ -12,4 +12,9 @@ class CategoryTaskViewModel: ObservableObject{
     @Published var categoryTitle: String = ""
     @Published  var color = Color.indigo
     @Published  var systemIcon = "calendar"
+    
+      let colors = [
+        Color.indigo, Color.red, Color.blue, Color.cyan, Color.yellow,
+        Color.green, Color.mint, Color.purple, Color.teal, Color.pink,
+    ]
 }

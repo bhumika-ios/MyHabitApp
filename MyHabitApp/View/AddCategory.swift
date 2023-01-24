@@ -11,6 +11,7 @@ struct AddCategory: View {
 //    @State private var color = Color.indigo
 //    @State private var systemIcon = "calendar"
     @EnvironmentObject var categoryModel: CategoryTaskViewModel
+    private let columns = Array(repeating: GridItem(spacing: 20), count: 5)
     private let systemIcons = [
         "calendar", "book.closed", "bookmark", "graduationcap", "cart",
         "display", "clock", "network", "phone", "heart"
@@ -29,7 +30,13 @@ struct AddCategory: View {
                     .padding()
                     .background(Color(UIColor.systemGray5))
                     .cornerRadius(10)
-                  //  LazyVGrid(columns: columns, spacing: 20)
+                    LazyVGrid(columns: columns, spacing: 20){
+                        ForEach(categoryModel.colors, id: \.self) { cl in
+                            ZStack{
+                                
+                            }
+                        }
+                    }
                     
                 }
             }
