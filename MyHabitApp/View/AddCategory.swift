@@ -56,7 +56,18 @@ struct AddCategory: View {
                     .background(Color(UIColor.systemGray5))
                     .cornerRadius(10)
                     
-                    
+                    LazyVGrid (columns: columns, spacing: 20){
+                        ForEach(categoryModel.systemIcons, id: \.self) { icon in
+                            CategoryIconView(systemIcon: icon, color: self.categoryModel.systemIcon == icon ? self.categoryModel.color : Color(UIColor.systemGray3))
+                                .onTapGesture {
+                                    withAnimation{
+                                        self.categoryModel.systemIcon = icon
+                                    }
+                                }
+                        
+                            
+                        }
+                    }
                 }
             }
         }

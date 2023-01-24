@@ -17,4 +17,9 @@ class CategoryTaskViewModel: ObservableObject{
         Color.indigo, Color.red, Color.blue, Color.cyan, Color.yellow,
         Color.green, Color.mint, Color.purple, Color.teal, Color.pink,
     ]
+    
+    let systemIcons = [
+        "calendar", "book.closed", "bookmark", "graduationcap", "cart",
+        "display", "clock", "network", "phone", "heart"
+    ]
 }
