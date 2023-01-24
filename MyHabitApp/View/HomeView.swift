@@ -307,6 +307,17 @@ struct HomeView: View {
              
                  
                 Spacer()
+                Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
+                    .resizable()
+                    .frame(width: 25,height: 25)
+                    .foregroundColor(task.isCompleted ? .red : .green)
+                    
+                    .onTapGesture {
+                        
+                            task.isCompleted.toggle()
+                        
+                    }
+                    .offset(y: 10)
 //                MARK:  Edit button only for noncomleted task
                 //&& taskModel.currentTab != "Failed Task"
                // if !task.isCompleted {
@@ -329,6 +340,7 @@ struct HomeView: View {
                 
             }
            //.padding()
+            
             VStack(alignment: .leading, spacing: 0){
                 if task.isCompleted{
                     Text(task.taskDescription ?? "")
@@ -368,12 +380,7 @@ struct HomeView: View {
                 .frame(maxWidth: .infinity, alignment: .leading)
                // CheckBoxView().environmentObject(taskModel)
                 //&& taskModel.currentTab != "Failed Task"
-                Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
-                    .onTapGesture {
-                        
-                            task.isCompleted.toggle()
-                        
-                    }
+               
 //                if !taskModel.markTask {
 //                    Button{
 ////                        MARK: updating Coredata
