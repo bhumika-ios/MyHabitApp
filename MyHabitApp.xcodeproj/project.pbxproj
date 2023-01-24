@@ -21,6 +21,7 @@
 		AC61F10129751DC80003C42E /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F10029751DC80003C42E /* TaskViewModel.swift */; };
 		AC61F103297552640003C42E /* AddBottomSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */; };
 		AC61F10529755E5A0003C42E /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F10429755E5A0003C42E /* TabView.swift */; };
+		AC6939B8297FB6EF0098C77E /* AddCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6939B7297FB6EF0098C77E /* AddCategory.swift */; };
 		ACE9953B2977D5B400CB52AE /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953A2977D5B400CB52AE /* CategoryView.swift */; };
 		ACE9953D2977D61200CB52AE /* CategoryTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953C2977D61200CB52AE /* CategoryTaskViewModel.swift */; };
 		ACE995402977D68000CB52AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953F2977D68000CB52AE /* CoreDataManager.swift */; };
@@ -68,6 +69,7 @@
 		AC61F10029751DC80003C42E /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBottomSelectionSheet.swift; sourceTree = "<group>"; };
 		AC61F10429755E5A0003C42E /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
+		AC6939B7297FB6EF0098C77E /* AddCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategory.swift; sourceTree = "<group>"; };
 		ACE9953A2977D5B400CB52AE /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
 		ACE9953C2977D61200CB52AE /* CategoryTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTaskViewModel.swift; sourceTree = "<group>"; };
 		ACE9953F2977D68000CB52AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
@@ -178,6 +180,7 @@
 				ACE9954E2977EBFB00CB52AE /* GroupIconView.swift */,
 				ACE995502977EFC500CB52AE /* CategoryCardview.swift */,
 				ACE995622977F58200CB52AE /* CategoryDisplayView.swift */,
+				AC6939B7297FB6EF0098C77E /* AddCategory.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -351,6 +354,7 @@
 				ACE9953B2977D5B400CB52AE /* CategoryView.swift in Sources */,
 				ACE9954B2977E8E800CB52AE /* Task.swift in Sources */,
 				ACE995492977E6B500CB52AE /* Group.swift in Sources */,
+				AC6939B8297FB6EF0098C77E /* AddCategory.swift in Sources */,
 				ACE995402977D68000CB52AE /* CoreDataManager.swift in Sources */,
 				ACE9954F2977EBFB00CB52AE /* GroupIconView.swift in Sources */,
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,

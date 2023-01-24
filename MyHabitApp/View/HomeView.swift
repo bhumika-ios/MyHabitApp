@@ -309,7 +309,7 @@ struct HomeView: View {
                 Spacer()
                 Image(systemName: task.isCompleted ? "checkmark.circle" : "circle")
                     .resizable()
-                    .frame(width: 25,height: 25)
+                    .frame(width: 25,height: 25)    
                     .foregroundColor(task.isCompleted ? .red : .green)
                     
                     .onTapGesture {

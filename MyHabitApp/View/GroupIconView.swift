@@ -7,15 +7,15 @@
 
 import SwiftUI
 
-enum GroupIconSize {
+enum CategoryIconSize {
     case md;
     case lg;
 }
 
-struct GroupIconView: View {
+struct CategoryIconView: View {
     var systemIcon: String
     var color: Color
-    var size: GroupIconSize = .md
+    var size: CategoryIconSize = .md
     
     var sizes: (frame: Double, icon: Double) {
         get {
@@ -40,9 +40,9 @@ struct GroupIconView: View {
     }
 }
 
-struct GroupIconView_Previews: PreviewProvider {
+struct CategoryIconView_Previews: PreviewProvider {
     static var previews: some View {
-        GroupIconView(systemIcon: "calendar", color: Color.indigo)
+        CategoryIconView(systemIcon: "calendar", color: Color.indigo)
             .previewLayout(.sizeThatFits)
     }
 }
