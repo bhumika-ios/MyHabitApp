@@ -33,7 +33,12 @@ struct AddCategory: View {
                     LazyVGrid(columns: columns, spacing: 20){
                         ForEach(categoryModel.colors, id: \.self) { cl in
                             ZStack{
-                                
+                                if cl.toHex()! == categoryModel.color.toHex()! {
+                                    Circle()
+                                        .foregroundColor(cl)
+                                        .frame(width: 45, height: 45)
+                                        .opacity(0.3)
+                                }
                             }
                         }
                     }
