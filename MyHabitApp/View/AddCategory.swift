@@ -52,6 +52,10 @@ struct AddCategory: View {
                             }
                         }
                     }
+                    .padding()
+                    .background(Color(UIColor.systemGray5))
+                    .cornerRadius(10)
+                    
                     
                 }
             }
