@@ -11,12 +11,20 @@ struct PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
+       // var groups: [Category] = []
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
 //        for _ in 0..<10 {
 //            let newItem = Item(context: viewContext)
 //            newItem.timestamp = Date()
 //        }
+//        for _ in 0..<3 {
+//            let newGroup = Category.createFakeGroup(context: viewContext)
+//
+//            groups.append(newGroup)
+//        }
+//        result.save(context: viewContext)
+        
         do {
             try viewContext.save()
         } catch {
@@ -52,5 +60,20 @@ struct PersistenceController {
             }
         })
         container.viewContext.automaticallyMergesChangesFromParent = true
+    }
+    func delete(context: NSManagedObjectContext, object: NSManagedObject) {
+        context.delete(object)
+        
+        self.save(context: context)
+    }
+    
+    func save(context: NSManagedObjectContext) {
+        if context.hasChanges {
+            do {
+                try context.save()
+            } catch {
+                print("Can`t save changes: \(error.localizedDescription)")
+            }
+        }
     }
 }

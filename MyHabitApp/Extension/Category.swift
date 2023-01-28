@@ -1,11 +1,10 @@
 //
-//  Group.swift
+//  Category.swift
 //  MyHabitApp
 //
-//  Created by Bhumika Patel on 18/01/23.
+//  Created by Bhumika Patel on 25/01/23.
 //
 
-//
 import Foundation
 import CoreData
 

@@ -2,7 +2,7 @@
 //  Color.swift
 //  MyHabitApp
 //
-//  Created by Bhumika Patel on 18/01/23.
+//  Created by Bhumika Patel on 25/01/23.
 //
 
 import SwiftUI
@@ -64,5 +64,4 @@ extension Color {
         
         self.init(red: r, green: g, blue: b, opacity: a)
     }
-    
 }

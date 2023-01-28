@@ -25,6 +25,12 @@ struct TabHomeView: View {
                     Image(systemName: "checkmark.circle")
                     Text("Task")
                 }
+            DisplayCategoryView()
+              //  .environmentObject(CategoryViewModel())
+                .tabItem{
+                    Image(systemName: "checkmark.circle")
+                    Text("Category")
+                }
             Text("Setting")
                 .tabItem{
                     Image(systemName: "gearshape")

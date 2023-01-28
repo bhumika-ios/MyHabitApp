@@ -21,17 +21,15 @@
 		AC61F10129751DC80003C42E /* TaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F10029751DC80003C42E /* TaskViewModel.swift */; };
 		AC61F103297552640003C42E /* AddBottomSelectionSheet.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */; };
 		AC61F10529755E5A0003C42E /* TabView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC61F10429755E5A0003C42E /* TabView.swift */; };
-		AC6939B8297FB6EF0098C77E /* AddCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC6939B7297FB6EF0098C77E /* AddCategory.swift */; };
-		ACE9953B2977D5B400CB52AE /* CategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953A2977D5B400CB52AE /* CategoryView.swift */; };
-		ACE9953D2977D61200CB52AE /* CategoryTaskViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953C2977D61200CB52AE /* CategoryTaskViewModel.swift */; };
+		ACC1E58A2980FB98009F09C1 /* AddCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E5892980FB98009F09C1 /* AddCategory.swift */; };
+		ACC1E58D2980FBB3009F09C1 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */; };
+		ACC1E58F2980FEBA009F09C1 /* DisplayCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */; };
+		ACC1E59429810D16009F09C1 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59329810D16009F09C1 /* Category.swift */; };
+		ACC1E59629810D25009F09C1 /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59529810D25009F09C1 /* Color.swift */; };
+		ACC1E59829810D45009F09C1 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59729810D45009F09C1 /* PersistenceController.swift */; };
+		ACC1E59A29810E78009F09C1 /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59929810E78009F09C1 /* CategoryIconView.swift */; };
+		ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59B29810F15009F09C1 /* CardView.swift */; };
 		ACE995402977D68000CB52AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953F2977D68000CB52AE /* CoreDataManager.swift */; };
-		ACE995472977E5F100CB52AE /* Color.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE995462977E5F100CB52AE /* Color.swift */; };
-		ACE995492977E6B500CB52AE /* Group.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE995482977E6B500CB52AE /* Group.swift */; };
-		ACE9954B2977E8E800CB52AE /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9954A2977E8E800CB52AE /* Task.swift */; };
-		ACE9954D2977EB9300CB52AE /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9954C2977EB9300CB52AE /* PersistenceController.swift */; };
-		ACE9954F2977EBFB00CB52AE /* GroupIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9954E2977EBFB00CB52AE /* GroupIconView.swift */; };
-		ACE995512977EFC500CB52AE /* CategoryCardview.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE995502977EFC500CB52AE /* CategoryCardview.swift */; };
-		ACE995632977F58200CB52AE /* CategoryDisplayView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE995622977F58200CB52AE /* CategoryDisplayView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -69,17 +67,15 @@
 		AC61F10029751DC80003C42E /* TaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskViewModel.swift; sourceTree = "<group>"; };
 		AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddBottomSelectionSheet.swift; sourceTree = "<group>"; };
 		AC61F10429755E5A0003C42E /* TabView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabView.swift; sourceTree = "<group>"; };
-		AC6939B7297FB6EF0098C77E /* AddCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategory.swift; sourceTree = "<group>"; };
-		ACE9953A2977D5B400CB52AE /* CategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryView.swift; sourceTree = "<group>"; };
-		ACE9953C2977D61200CB52AE /* CategoryTaskViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTaskViewModel.swift; sourceTree = "<group>"; };
+		ACC1E5892980FB98009F09C1 /* AddCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategory.swift; sourceTree = "<group>"; };
+		ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
+		ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCategoryView.swift; sourceTree = "<group>"; };
+		ACC1E59329810D16009F09C1 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		ACC1E59529810D25009F09C1 /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
+		ACC1E59729810D45009F09C1 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
+		ACC1E59929810E78009F09C1 /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
+		ACC1E59B29810F15009F09C1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ACE9953F2977D68000CB52AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
-		ACE995462977E5F100CB52AE /* Color.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Color.swift; sourceTree = "<group>"; };
-		ACE995482977E6B500CB52AE /* Group.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Group.swift; sourceTree = "<group>"; };
-		ACE9954A2977E8E800CB52AE /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
-		ACE9954C2977EB9300CB52AE /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
-		ACE9954E2977EBFB00CB52AE /* GroupIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GroupIconView.swift; sourceTree = "<group>"; };
-		ACE995502977EFC500CB52AE /* CategoryCardview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCardview.swift; sourceTree = "<group>"; };
-		ACE995622977F58200CB52AE /* CategoryDisplayView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryDisplayView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -130,7 +126,7 @@
 		AC458657297173670014A3E5 /* MyHabitApp */ = {
 			isa = PBXGroup;
 			children = (
-				ACE995452977E5DF00CB52AE /* Extensions */,
+				ACC1E59229810CFB009F09C1 /* Extension */,
 				ACE9953E2977D66D00CB52AE /* Data */,
 				AC45868C297176BD0014A3E5 /* ViewModel */,
 				AC458687297175030014A3E5 /* View */,
@@ -176,11 +172,10 @@
 				AC45868A297176620014A3E5 /* AddNewTask.swift */,
 				AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */,
 				AC61F10429755E5A0003C42E /* TabView.swift */,
-				ACE9953A2977D5B400CB52AE /* CategoryView.swift */,
-				ACE9954E2977EBFB00CB52AE /* GroupIconView.swift */,
-				ACE995502977EFC500CB52AE /* CategoryCardview.swift */,
-				ACE995622977F58200CB52AE /* CategoryDisplayView.swift */,
-				AC6939B7297FB6EF0098C77E /* AddCategory.swift */,
+				ACC1E5892980FB98009F09C1 /* AddCategory.swift */,
+				ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */,
+				ACC1E59929810E78009F09C1 /* CategoryIconView.swift */,
+				ACC1E59B29810F15009F09C1 /* CardView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -189,9 +184,19 @@
 			isa = PBXGroup;
 			children = (
 				AC61F10029751DC80003C42E /* TaskViewModel.swift */,
-				ACE9953C2977D61200CB52AE /* CategoryTaskViewModel.swift */,
+				ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */,
 			);
 			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		ACC1E59229810CFB009F09C1 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				ACC1E59329810D16009F09C1 /* Category.swift */,
+				ACC1E59529810D25009F09C1 /* Color.swift */,
+				ACC1E59729810D45009F09C1 /* PersistenceController.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 		ACE9953E2977D66D00CB52AE /* Data */ = {
@@ -200,17 +205,6 @@
 				ACE9953F2977D68000CB52AE /* CoreDataManager.swift */,
 			);
 			path = Data;
-			sourceTree = "<group>";
-		};
-		ACE995452977E5DF00CB52AE /* Extensions */ = {
-			isa = PBXGroup;
-			children = (
-				ACE995462977E5F100CB52AE /* Color.swift */,
-				ACE995482977E6B500CB52AE /* Group.swift */,
-				ACE9954A2977E8E800CB52AE /* Task.swift */,
-				ACE9954C2977EB9300CB52AE /* PersistenceController.swift */,
-			);
-			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -343,26 +337,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ACC1E59A29810E78009F09C1 /* CategoryIconView.swift in Sources */,
 				AC458662297173690014A3E5 /* Persistence.swift in Sources */,
-				ACE9953D2977D61200CB52AE /* CategoryTaskViewModel.swift in Sources */,
 				AC61F10129751DC80003C42E /* TaskViewModel.swift in Sources */,
-				ACE995632977F58200CB52AE /* CategoryDisplayView.swift in Sources */,
 				AC45865B297173670014A3E5 /* ContentView.swift in Sources */,
-				ACE995512977EFC500CB52AE /* CategoryCardview.swift in Sources */,
-				ACE995472977E5F100CB52AE /* Color.swift in Sources */,
 				AC458665297173690014A3E5 /* MyHabitApp.xcdatamodeld in Sources */,
-				ACE9953B2977D5B400CB52AE /* CategoryView.swift in Sources */,
-				ACE9954B2977E8E800CB52AE /* Task.swift in Sources */,
-				ACE995492977E6B500CB52AE /* Group.swift in Sources */,
-				AC6939B8297FB6EF0098C77E /* AddCategory.swift in Sources */,
+				ACC1E58D2980FBB3009F09C1 /* CategoryViewModel.swift in Sources */,
 				ACE995402977D68000CB52AE /* CoreDataManager.swift in Sources */,
-				ACE9954F2977EBFB00CB52AE /* GroupIconView.swift in Sources */,
+				ACC1E58F2980FEBA009F09C1 /* DisplayCategoryView.swift in Sources */,
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,
+				ACC1E59629810D25009F09C1 /* Color.swift in Sources */,
+				ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */,
 				AC61F103297552640003C42E /* AddBottomSelectionSheet.swift in Sources */,
 				AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */,
+				ACC1E58A2980FB98009F09C1 /* AddCategory.swift in Sources */,
 				AC61F10529755E5A0003C42E /* TabView.swift in Sources */,
 				AC45868B297176620014A3E5 /* AddNewTask.swift in Sources */,
-				ACE9954D2977EB9300CB52AE /* PersistenceController.swift in Sources */,
+				ACC1E59429810D16009F09C1 /* Category.swift in Sources */,
+				ACC1E59829810D45009F09C1 /* PersistenceController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

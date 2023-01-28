@@ -7,17 +7,26 @@
 
 
 import SwiftUI
+extension Category{
+    public var itemsArray:[Task]{
+        let set = categoryToTask as? Set<Task> ?? []
+        return set.sorted{
+            $0.taskDate! < $1.taskDate!
+        }
+    }
+}
 
 struct HomeView: View {
     //@StateObject var taskModel: TaskkViewModel = .init()
     @StateObject var taskModel: TaskViewModel = .init()
+    @State private var color = Color.indigo
     //MARK: Matched Geometry Names
     @Namespace var animation
   @State var showAddBottomSheet = false
     
 //    MARK: Fetching Task
     @FetchRequest(entity: Task.entity(), sortDescriptors: [NSSortDescriptor(keyPath: \Task.taskDate, ascending: false)], predicate: nil, animation: .easeInOut) var tasks: FetchedResults<Task>
-    
+    @FetchRequest(entity: Category.entity(), sortDescriptors: []) private var categories: FetchedResults<Category>
 //    MARK: Environment values
     @Environment(\.self) var env
     @State var isOrdinary: Bool = true
@@ -360,7 +369,7 @@ struct HomeView: View {
             }
             .padding(.vertical,-12)
             
-        
+           
             HStack(alignment: .bottom, spacing: 0){
                 VStack(alignment: .leading, spacing: 5){
                     Label {
@@ -378,27 +387,8 @@ struct HomeView: View {
                     .font(.caption)
                 }
                 .frame(maxWidth: .infinity, alignment: .leading)
-               // CheckBoxView().environmentObject(taskModel)
-                //&& taskModel.currentTab != "Failed Task"
                
-//                if !taskModel.markTask {
-//                    Button{
-////                        MARK: updating Coredata
-//                       // task.isCompleted = true
-//                        taskModel.markTask.toggle()
-//                        try? context.save()
-////                        try? env.managedObjectContext.save()
-//                    } label: {
-////                        Circle()
-////                            .strokeBorder(.black,lineWidth: 1.5)
-////                            .frame(width: 20, height: 20)
-////                            .contentShape(Circle())
-//                        Image(systemName: taskModel.markTask ? "checkmark.circle.fill" : "circle")
-//                          .resizable()
-//                          .frame(width: 20, height: 20)
-//                          .accentColor(.black)
-//                    }
-//                }
+               
             }
             
         }
@@ -408,13 +398,15 @@ struct HomeView: View {
         .frame(maxWidth: .infinity)
         .background{
             ZStack(alignment: .leading){
-                Rectangle()
-                    .fill(Color(task.taskColor ?? "Yellow"))
-                    .frame(width: 5)
-                //   RoundedRectangle(cornerRadius: 12, style: .continuous)
-                //  .fill(Color(task.color.opacity(0.25) as! CGColor))
-                Rectangle()
-                    .fill(Color(task.taskColor ?? "Yellow" )).opacity(0.25)
+                ForEach(categories){ category in
+                    Rectangle()
+                        .fill(Color(category.color ?? "Yellow"))
+                        .frame(width: 5)
+                    //   RoundedRectangle(cornerRadius: 12, style: .continuous)
+                    //  .fill(Color(task.color.opacity(0.25) as! CGColor))
+                    Rectangle()
+                        .fill(Color(category.color ?? "Yellow" )).opacity(0.25)
+                }
             }
             .onTapGesture {
                 taskModel.editTask = task

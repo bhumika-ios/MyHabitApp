@@ -11,10 +11,14 @@ struct AddNewTask: View {
     let placeholder: String
     let placeholder2: String
     @State private var color: Color = .blue
+    @State private var category: UUID?
     @EnvironmentObject var taskModel: TaskViewModel
     //MARK:All environment values in one variable
     @Environment(\.self) var env
     @Namespace var animation
+  //  @State private var selectedCategory:[Category] = []
+    @FetchRequest(entity: Category.entity(), sortDescriptors: []) private var categories: FetchedResults<Category>
+    
     var body: some View {
         VStack(alignment: .leading){
             VStack(alignment: .leading,spacing: 10){
@@ -109,6 +113,64 @@ struct AddNewTask: View {
                     .stroke(self.taskModel.taskDescription.isEmpty ? .black.opacity(0.5) : .black, lineWidth: 1)
                 )
                 .padding(.vertical,10)
+//                VStack{
+//                    Text("Selected Category")
+//                    ScrollView(.horizontal){
+//                        LazyHStack{
+//                            ForEach(selectedCategory){selectCategory in
+//                                Button(action: {
+//                                    if let indexToRemove = selectedCategory.firstIndex(of: selectCategory){
+//                                        selectedCategory.remove(at: indexToRemove)
+//                                    }
+//                                },
+//                                label: {
+//                                    Text(selectCategory.title ?? "TagColorRed")
+//                                })
+//                                .tint(Color(selectCategory.color ?? ""))
+//                                .buttonBorderShape(.roundedRectangle)
+//                                .buttonStyle(.bordered)
+//                                .controlSize(.large)
+//                            }
+//                        }
+//                    }
+//                    Text("Categories")
+//                    ScrollView(.horizontal){
+//                        LazyHStack{
+//                            ForEach(categories){category in
+//                                Button(action: {
+//                                    selectedCategory.append(category)
+//                                }, label: {
+//                                    Text(category.title ?? "TagColorRed")
+//
+//                                })
+//                                .tint(Color(category.color ?? ""))
+//                                .buttonBorderShape(.roundedRectangle)
+//                                .buttonStyle(.bordered)
+//                                .controlSize(.large)
+//                            }
+//                        }
+//                    }
+//                }
+               // .padding(.vertical,10)
+                HStack{
+                    Text("Select Category")
+                        Spacer()
+                    Picker("select Category", selection: $category){
+                        ForEach(categories){
+                            Text($0.title!).tag($0.id)
+                        }
+                    }
+                }
+                .padding(.leading,10)
+                .overlay(alignment: .bottom){
+                    RoundedRectangle(cornerRadius: 10)
+                        .stroke(.black.opacity(0.5), lineWidth: 1)
+                       // .fill(.black.opacity(0.5))
+                        .frame(width: 360, height:45)
+                        .offset(x: -5,y: 10)
+                        .padding(.leading,10)
+                }
+                .padding()
                 VStack(alignment: .leading, spacing: 12){
 //                    Text("Date")
 //                        .font(.title3)
@@ -122,12 +184,13 @@ struct AddNewTask: View {
                         .foregroundColor(.black)
                         .fontWeight(.semibold)
                         .padding(.top,8)
-                        .offset(y: 1.5)
+                        .offset(y: -20)
+                        .padding(.vertical,1)
 //                    Rectangle()
 //                        .fill(.black.opacity(0.7))
 //                        .frame(height: 1)
                 }
-                .padding(.vertical,-10)
+                .padding(.vertical,-30)
                 .frame(maxWidth: .infinity,alignment: .leading)
                 .overlay(alignment: .bottomTrailing){
                     Button{
@@ -136,6 +199,7 @@ struct AddNewTask: View {
                         Image(systemName: "calendar")
                             .foregroundColor(.black)
                     }
+                    
                     .offset(x: -5,y: -10)
                 }
                 .overlay(alignment: .bottom){
@@ -143,34 +207,35 @@ struct AddNewTask: View {
                         .stroke(.black.opacity(0.5), lineWidth: 1)
                        // .fill(.black.opacity(0.5))
                         .frame(width: 360, height:45)
-                        .offset(y: 5)
+                        .offset(x: -4,y: 1)
+                        .padding(.leading,10)
                 }
                 .padding(.bottom, 15)
-                VStack(alignment: .leading, spacing: 12){
-                    let colors: [String] = ["Yellow", "Green", "Blue","Purple", "Red", "Orange","Pink","Sky","Till"]
-                    ScrollView(.horizontal, showsIndicators: false){
-                        HStack(spacing: 15){
-                            
-                            ForEach(colors,id: \.self){ color in
-                                Circle()
-                                    .fill(Color(color))
-                                    .frame(width: 25, height: 25)
-                                    .background{
-                                        if taskModel.taskColor == color{
-                                            Circle()
-                                                .strokeBorder(.gray)
-                                                .padding(-3)
-                                        }
-                                    }
-                                    .contentShape(Circle())
-                                    .onTapGesture {
-                                        taskModel.taskColor = color
-                                    }
-                            }
-                        }
-                        .padding()
-                    }
-                }
+//                VStack(alignment: .leading, spacing: 12){
+//                    let colors: [String] = ["Yellow", "Green", "Blue","Purple", "Red", "Orange","Pink","Sky","Till"]
+//                    ScrollView(.horizontal, showsIndicators: false){
+//                        HStack(spacing: 15){
+//                            
+//                            ForEach(colors,id: \.self){ color in
+//                                Circle()
+//                                    .fill(Color(color))
+//                                    .frame(width: 25, height: 25)
+//                                    .background{
+//                                        if taskModel.taskColor == color{
+//                                            Circle()
+//                                                .strokeBorder(.gray)
+//                                                .padding(-3)
+//                                        }
+//                                    }
+//                                    .contentShape(Circle())
+//                                    .onTapGesture {
+//                                        taskModel.taskColor = color
+//                                    }
+//                            }
+//                        }
+//                        .padding()
+//                    }
+//                }
 //                ZStack{
 //                    VStack{
 //                        Image(systemName: "rectangle.fill")
