@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		AC0C44C429852B92001618A5 /* TaskItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C329852B92001618A5 /* TaskItemView.swift */; };
 		AC0C44C629852D01001618A5 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C529852D01001618A5 /* CheckboxView.swift */; };
+		AC0C44C829852E2D001618A5 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C729852E2D001618A5 /* SectionTitleView.swift */; };
 		AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC458658297173670014A3E5 /* MyHabitAppApp.swift */; };
 		AC45865B297173670014A3E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45865A297173670014A3E5 /* ContentView.swift */; };
 		AC45865D297173690014A3E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC45865C297173690014A3E5 /* Assets.xcassets */; };
@@ -54,6 +55,7 @@
 /* Begin PBXFileReference section */
 		AC0C44C329852B92001618A5 /* TaskItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskItemView.swift; sourceTree = "<group>"; };
 		AC0C44C529852D01001618A5 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
+		AC0C44C729852E2D001618A5 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
 		AC458655297173670014A3E5 /* MyHabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC458658297173670014A3E5 /* MyHabitAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitAppApp.swift; sourceTree = "<group>"; };
 		AC45865A297173670014A3E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -182,6 +184,7 @@
 				ACC1E59B29810F15009F09C1 /* CardView.swift */,
 				AC0C44C329852B92001618A5 /* TaskItemView.swift */,
 				AC0C44C529852D01001618A5 /* CheckboxView.swift */,
+				AC0C44C729852E2D001618A5 /* SectionTitleView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -363,6 +366,7 @@
 				AC0C44C429852B92001618A5 /* TaskItemView.swift in Sources */,
 				ACC1E59429810D16009F09C1 /* Category.swift in Sources */,
 				ACC1E59829810D45009F09C1 /* PersistenceController.swift in Sources */,
+				AC0C44C829852E2D001618A5 /* SectionTitleView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
