@@ -7,7 +7,7 @@
 import SwiftUI
 
 struct AddBottomSelectionSheet: View {
-    @StateObject var taskModel: TaskViewModel = .init()
+    @State private var isAddTodoOpen = false
     var body: some View {
         VStack(alignment: .leading){
             VStack{
@@ -38,7 +38,8 @@ struct AddBottomSelectionSheet: View {
                 Divider()
                     .foregroundColor(.black)
                 Button{
-                    taskModel.OpenEditTask.toggle()
+                  //  taskModel.OpenEditTask.toggle()
+                    isAddTodoOpen = true
                 } label: {
                     HStack{
                         Image(systemName: "checkmark.circle")
@@ -64,12 +65,9 @@ struct AddBottomSelectionSheet: View {
             }
         }
         .padding()
-        .fullScreenCover(isPresented: $taskModel.OpenEditTask){
-        taskModel.resetTaskData()
-    } content: {
-        AddNewTask(placeholder: "Task Name", placeholder2: "Task Description")
-            .environmentObject(taskModel)
-    }
+        .sheet(isPresented: $isAddTodoOpen) {
+            AddTaskScreen()
+        }
       
     }
     
