@@ -40,7 +40,6 @@
 		ACC1E59A29810E78009F09C1 /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59929810E78009F09C1 /* CategoryIconView.swift */; };
 		ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59B29810F15009F09C1 /* CardView.swift */; };
 		ACD21BE22987B5CA00D69B9B /* DisplayTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */; };
-		ACE995402977D68000CB52AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953F2977D68000CB52AE /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -97,7 +96,6 @@
 		ACC1E59929810E78009F09C1 /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
 		ACC1E59B29810F15009F09C1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskView.swift; sourceTree = "<group>"; };
-		ACE9953F2977D68000CB52AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,9 +146,9 @@
 		AC458657297173670014A3E5 /* MyHabitApp */ = {
 			isa = PBXGroup;
 			children = (
+				ACD21BE32987CF9700D69B9B /* Other */,
 				ACB66464298790BC002029CF /* Screen */,
 				ACC1E59229810CFB009F09C1 /* Extension */,
-				ACE9953E2977D66D00CB52AE /* Data */,
 				AC45868C297176BD0014A3E5 /* ViewModel */,
 				AC458687297175030014A3E5 /* View */,
 				AC458658297173670014A3E5 /* MyHabitAppApp.swift */,
@@ -191,11 +189,7 @@
 		AC458687297175030014A3E5 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				AC458688297175240014A3E5 /* HomeView.swift */,
-				AC45868A297176620014A3E5 /* AddNewTask.swift */,
 				AC61F102297552640003C42E /* AddBottomSelectionSheet.swift */,
-				AC61F10429755E5A0003C42E /* TabView.swift */,
-				ACC1E5892980FB98009F09C1 /* AddCategory.swift */,
 				ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */,
 				ACC1E59929810E78009F09C1 /* CategoryIconView.swift */,
 				ACC1E59B29810F15009F09C1 /* CardView.swift */,
@@ -210,8 +204,7 @@
 		AC45868C297176BD0014A3E5 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
-				AC61F10029751DC80003C42E /* TaskViewModel.swift */,
-				ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */,
+				ACC1E59729810D45009F09C1 /* PersistenceController.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -234,18 +227,22 @@
 			children = (
 				ACC1E59329810D16009F09C1 /* Category.swift */,
 				ACC1E59529810D25009F09C1 /* Color.swift */,
-				ACC1E59729810D45009F09C1 /* PersistenceController.swift */,
 				ACB6646B29879530002029CF /* Task.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
 		};
-		ACE9953E2977D66D00CB52AE /* Data */ = {
+		ACD21BE32987CF9700D69B9B /* Other */ = {
 			isa = PBXGroup;
 			children = (
-				ACE9953F2977D68000CB52AE /* CoreDataManager.swift */,
+				AC45868A297176620014A3E5 /* AddNewTask.swift */,
+				AC458688297175240014A3E5 /* HomeView.swift */,
+				AC61F10029751DC80003C42E /* TaskViewModel.swift */,
+				AC61F10429755E5A0003C42E /* TabView.swift */,
+				ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */,
+				ACC1E5892980FB98009F09C1 /* AddCategory.swift */,
 			);
-			path = Data;
+			path = Other;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -388,7 +385,6 @@
 				AC458665297173690014A3E5 /* MyHabitApp.xcdatamodeld in Sources */,
 				ACB6646C29879530002029CF /* Task.swift in Sources */,
 				ACC1E58D2980FBB3009F09C1 /* CategoryViewModel.swift in Sources */,
-				ACE995402977D68000CB52AE /* CoreDataManager.swift in Sources */,
 				ACC1E58F2980FEBA009F09C1 /* DisplayCategoryView.swift in Sources */,
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,
 				ACC1E59629810D25009F09C1 /* Color.swift in Sources */,

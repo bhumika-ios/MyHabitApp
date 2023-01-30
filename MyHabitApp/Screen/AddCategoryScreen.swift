@@ -10,6 +10,7 @@ import SwiftUI
 struct AddCategoryScreen: View {
     @Environment(\.dismiss) private var dismiss
     @Environment(\.managedObjectContext) private var moc
+    @Environment(\.self) var env
     
     var category: Category? = nil
     
@@ -141,6 +142,27 @@ struct AddCategoryScreen: View {
             }
             .navigationTitle("Publish Group")
             .navigationBarTitleDisplayMode(.inline)
+            .toolbar{
+               // .overlay(alignment: .trailing){
+                    Button{
+                        if let editCategory =  category {
+                            env.managedObjectContext.delete(editCategory)
+                            try? env.managedObjectContext.save()
+                            env.dismiss()
+                        }
+                            
+                        
+                    }label: {
+                        Image(systemName: "trash")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .font(.title3)
+                            .foregroundColor(.red)
+                    }
+                   
+                    .opacity(category  == nil ? 0 : 1)
+               // }
+            }
         }
     }
 }

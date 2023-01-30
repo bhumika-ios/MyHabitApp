@@ -48,23 +48,24 @@ struct CardView: View {
 //        .cornerRadius(10)
         .onTapGesture {
             withAnimation {
-                onCategoryTap(category)
+                isEditCategoryOpen.toggle()
             }
         }
-        .contextMenu {
-            VStack {
-                Button("Edit Category") {
-                    isEditCategoryOpen.toggle()
-                }
-                Button("Delete Category") {
-                    withAnimation {
-                        PersistenceController.shared.delete(context: moc, object: category)
-                    }
-                }
-            }
-        }
+//        .contextMenu {
+//            VStack {
+//                Button("Edit Category") {
+//                    isEditCategoryOpen.toggle()
+//                }
+//                Button("Delete Category") {
+//                    withAnimation {
+//                        PersistenceController.shared.delete(context: moc, object: category)
+//                    }
+//                }
+//            }
+//        }
         .sheet(isPresented: $isEditCategoryOpen) {
           //  PublishCategoryScreen(group: group)
+            AddCategoryScreen(category: category)
         }
     }
 }
