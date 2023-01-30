@@ -29,6 +29,7 @@
 		ACB66468298790F4002029CF /* MainScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB66467298790F4002029CF /* MainScreen.swift */; };
 		ACB6646A2987914E002029CF /* AddTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB664692987914E002029CF /* AddTaskScreen.swift */; };
 		ACB6646C29879530002029CF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6646B29879530002029CF /* Task.swift */; };
+		ACB6646E29879844002029CF /* AddCategoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6646D29879844002029CF /* AddCategoryScreen.swift */; };
 		ACC1E58A2980FB98009F09C1 /* AddCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E5892980FB98009F09C1 /* AddCategory.swift */; };
 		ACC1E58D2980FBB3009F09C1 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */; };
 		ACC1E58F2980FEBA009F09C1 /* DisplayCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */; };
@@ -83,6 +84,7 @@
 		ACB66467298790F4002029CF /* MainScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainScreen.swift; sourceTree = "<group>"; };
 		ACB664692987914E002029CF /* AddTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScreen.swift; sourceTree = "<group>"; };
 		ACB6646B29879530002029CF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
+		ACB6646D29879844002029CF /* AddCategoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryScreen.swift; sourceTree = "<group>"; };
 		ACC1E5892980FB98009F09C1 /* AddCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategory.swift; sourceTree = "<group>"; };
 		ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCategoryView.swift; sourceTree = "<group>"; };
@@ -216,6 +218,7 @@
 				ACB66465298790CE002029CF /* HomeScreen.swift */,
 				ACB66467298790F4002029CF /* MainScreen.swift */,
 				ACB664692987914E002029CF /* AddTaskScreen.swift */,
+				ACB6646D29879844002029CF /* AddCategoryScreen.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -384,6 +387,7 @@
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,
 				ACC1E59629810D25009F09C1 /* Color.swift in Sources */,
 				ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */,
+				ACB6646E29879844002029CF /* AddCategoryScreen.swift in Sources */,
 				AC0C44CA29852EEE001618A5 /* TaskList.swift in Sources */,
 				AC61F103297552640003C42E /* AddBottomSelectionSheet.swift in Sources */,
 				AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */,
