@@ -28,7 +28,7 @@ struct DisplayCategoryView: View {
                             
                             CardView(category: cat,
                                      isFilteredByCategory: cat == filteredByCategory
-                                     , onGroupTap: { g in
+                                     , onCategoryTap: { g in
                                 if filteredByCategory == g{
                                     filteredByCategory = nil
                                 }else{
@@ -92,7 +92,7 @@ struct DisplayCategoryView: View {
                     Button(action: { isAddTodoOpen = true }) {
                         Image(systemName: "plus.circle")
                             .sheet(isPresented: $isAddTodoOpen) {
-                                AddCategory()
+                                AddCategoryScreen()
                             }
                     }
                 }

@@ -27,8 +27,8 @@ struct TaskItemView: View {
                     HStack {
                         if task.isCompleted{
                             VStack{
-                                if task.title != nil {
-                                    Text(task.title!)
+                                if task.taskName != nil {
+                                    Text(task.taskName!)
                                         .strikethrough()
                                         .onTapGesture {
                                             isEditTaskOpen.toggle()
@@ -41,15 +41,15 @@ struct TaskItemView: View {
                                 
                                 if task.description != nil {
                                     
-                                    Text(task.description!)
+                                    Text(task.taskDescription!)
                                         .font(.system(size: 14))
                                         .strikethrough()
                                 }
                             }
                         } else {
                             VStack{
-                                if task.title != nil {
-                                    Text(task.title!)
+                                if task.taskName != nil {
+                                    Text(task.taskName!)
                                         .onTapGesture {
                                             isEditTaskOpen.toggle()
                                         }
@@ -61,13 +61,13 @@ struct TaskItemView: View {
                                 
                                 if task.description != nil {
                                     
-                                    Text(task.description!)
+                                    Text(task.taskDescription!)
                                         .font(.system(size: 14))
                                 }
                             }
                         }
                     }
-                    if task.group != nil {
+                    if task.category != nil {
                         Text("\(task.category!.title!) | \(task.readableDoDate)")
                             .foregroundColor(Color.gray)
                             .font(.system(size: 14))
@@ -75,7 +75,7 @@ struct TaskItemView: View {
                 }
                 
                 Spacer()
-                CheckboxView(defaultChecked: task.done, onToggle: {
+                CheckboxView(defaultChecked: task.isCompleted, onToggle: {
                     task.toggle(context: moc)
                 })
 //                Image(systemName: "trash")
@@ -94,7 +94,7 @@ struct TaskItemView: View {
     }
 }
 
-let task = task.createFakeTask(category: Category())
+let task = Task.createFakeTask(category: Category())
 
 struct TaskItemView_Previews: PreviewProvider {
     static var previews: some View {

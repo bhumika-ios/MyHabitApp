@@ -50,7 +50,7 @@ struct AddTaskScreen: View {
             
             PersistenceController.shared.save(context: moc)
         } else {
-            PersistenceController.shared.createTask(context: moc, category: selectedCategory!, taskName: taskName, taskDescription: taskDescription ,doDate: date)
+            PersistenceController.shared.createTask(context: moc, category: selectedCategory!, taskName: taskName, taskDescription: taskDescription ,taskDate: taskDate )
         }
         
        // dismiss()
@@ -101,7 +101,7 @@ struct AddTaskScreen: View {
 //                            }
                             .fullScreenCover(isPresented: $backtoHome){
                                                 }content: {
-                                                    MainScreen()
+                                                    HomeScreen()
                                                         //.environmentObject(taskModel)
                                                 }
                     }

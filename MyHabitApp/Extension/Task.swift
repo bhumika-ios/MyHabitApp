@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 
 extension Task {
-    static func createFakeTodo(category: Category, context: NSManagedObjectContext? = nil) -> Task {
+    static func createFakeTask(category: Category, context: NSManagedObjectContext? = nil) -> Task {
         let newTask = context != nil ? Task(context: context!) : Task()
         newTask.category = category
         newTask.id = UUID()

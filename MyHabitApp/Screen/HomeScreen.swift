@@ -18,15 +18,16 @@ struct HomeScreen: View {
                 .tabItem {
                     Image(systemName: "list.dash")
                 }
-            PublishGroupScreen()
+            AddCategoryScreen()
+           
                 .tabItem {
                     Image(systemName: "plus.rectangle.on.folder")
                 }
-            ProductList()
+            
            
-                .tabItem {
-                    Image(systemName: "chart.bar")
-                }
+//                .tabItem {
+//                    Image(systemName: "chart.bar")
+//                }
         }
     }
 }

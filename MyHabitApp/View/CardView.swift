@@ -19,12 +19,11 @@ struct CardView: View {
     var body: some View {
         VStack {
             HStack {
-                CardView(systemIcon: category.systemIcon ?? "calendar", color: category.color != nil ? Color(hex: category.color!)! : Color.pink)
-                
+               CategoryIconView(systemIcon: category.systemIcon ?? "calendar", color: category.color != nil ? Color(hex: category.color!)! : Color.pink)
                 Spacer()
                 
-                if category.task != nil {
-                    Text("\(category.task!.count)")
+                if category.tasks != nil {
+                    Text("\(category.tasks!.count)")
                         .foregroundColor(.primary)
                         .bold()
                 }

@@ -11,28 +11,31 @@ struct PersistenceController {
     static let shared = PersistenceController()
 
     static var preview: PersistenceController = {
-       // var groups: [Category] = []
+        var categories: [Category] = []
         let result = PersistenceController(inMemory: true)
         let viewContext = result.container.viewContext
-//        for _ in 0..<10 {
-//            let newItem = Item(context: viewContext)
-//            newItem.timestamp = Date()
-//        }
-//        for _ in 0..<3 {
-//            let newGroup = Category.createFakeGroup(context: viewContext)
-//
-//            groups.append(newGroup)
-//        }
-//        result.save(context: viewContext)
-        
-        do {
-            try viewContext.save()
-        } catch {
-            // Replace this implementation with code to handle the error appropriately.
-            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
-            let nsError = error as NSError
-            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+        for _ in 0..<3 {
+            let newCategory = Category.createFakeCategory(context: viewContext)
+            
+            categories.append(newCategory)
         }
+        
+        for _ in 0..<3 {
+            let newTask = Task.createFakeTask(category: categories[Int.random(in: 0..<categories.count)], context: viewContext)
+        }
+        
+        result.save(context: viewContext)
+        
+        
+        
+//        do {
+//            try viewContext.save()
+//        } catch {
+//            // Replace this implementation with code to handle the error appropriately.
+//            // fatalError() causes the application to generate a crash log and terminate. You should not use this function in a shipping application, although it may be useful during development.
+//            let nsError = error as NSError
+//            fatalError("Unresolved error \(nsError), \(nsError.userInfo)")
+//        }
         return result
     }()
 

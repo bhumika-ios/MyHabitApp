@@ -8,13 +8,13 @@
 import SwiftUI
 
 struct MainScreen: View {
-    @FetchRequest(entity: Todo.entity(), sortDescriptors: []) private var todos: FetchedResults<Todo>
+    @FetchRequest(entity: Task.entity(), sortDescriptors: []) private var tasks: FetchedResults<Task>
     
     @State private var searchValue = ""
-    @State private var isAddGroupOpen = false
+    @State private var isAddCategoryOpen = false
     @State var showAddBottomSheet = false
-    @State private var isAddTodoOpen = false
-    @State private var filteredByGroup: Group? = nil
+    @State private var isAddTaskOpen = false
+    @State private var filteredByCategory: Category? = nil
     @State private var currentDay: Date = .init()
     var body: some View {
         NavigationView{
@@ -171,11 +171,11 @@ struct MainScreen: View {
                 .frame(width: 45, alignment: .leading)
             /// - filtering tasks
             let calendar = Calendar.current
-            let filteredTasks = todos.filter{
+            let filteredTasks = tasks.filter{
                 if let hour = calendar.dateComponents([.hour], from: date).hour,
-                   let taskHour = calendar.dateComponents([.hour], from: $0.doDate ?? Date()).hour,
+                   let taskHour = calendar.dateComponents([.hour], from: $0.taskDate ?? Date()).hour,
                    /// - current day
-                   hour == taskHour && calendar.isDate($0.doDate ?? Date(), inSameDayAs: currentDay){
+                   hour == taskHour && calendar.isDate($0.taskDate ?? Date(), inSameDayAs: currentDay){
                   /// - filtering tasks based on hour and also verifying whether the date is the same as the selected week day
                     return true
                 }
@@ -190,7 +190,7 @@ struct MainScreen: View {
                 /// - task view
                 VStack(spacing: 10){
                     ForEach(filteredTasks){ task in
-                       ListItemView(todo: task)
+                       TaskItemView(task: task)
                     }
                 }
             }
