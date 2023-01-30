@@ -30,6 +30,7 @@
 		ACB6646A2987914E002029CF /* AddTaskScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB664692987914E002029CF /* AddTaskScreen.swift */; };
 		ACB6646C29879530002029CF /* Task.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6646B29879530002029CF /* Task.swift */; };
 		ACB6646E29879844002029CF /* AddCategoryScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6646D29879844002029CF /* AddCategoryScreen.swift */; };
+		ACB6647229879AA3002029CF /* TaskListData.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACB6647129879AA3002029CF /* TaskListData.swift */; };
 		ACC1E58A2980FB98009F09C1 /* AddCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E5892980FB98009F09C1 /* AddCategory.swift */; };
 		ACC1E58D2980FBB3009F09C1 /* CategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */; };
 		ACC1E58F2980FEBA009F09C1 /* DisplayCategoryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */; };
@@ -85,6 +86,7 @@
 		ACB664692987914E002029CF /* AddTaskScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTaskScreen.swift; sourceTree = "<group>"; };
 		ACB6646B29879530002029CF /* Task.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Task.swift; sourceTree = "<group>"; };
 		ACB6646D29879844002029CF /* AddCategoryScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategoryScreen.swift; sourceTree = "<group>"; };
+		ACB6647129879AA3002029CF /* TaskListData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskListData.swift; sourceTree = "<group>"; };
 		ACC1E5892980FB98009F09C1 /* AddCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddCategory.swift; sourceTree = "<group>"; };
 		ACC1E58C2980FBB3009F09C1 /* CategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryViewModel.swift; sourceTree = "<group>"; };
 		ACC1E58E2980FEBA009F09C1 /* DisplayCategoryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayCategoryView.swift; sourceTree = "<group>"; };
@@ -219,6 +221,7 @@
 				ACB66467298790F4002029CF /* MainScreen.swift */,
 				ACB664692987914E002029CF /* AddTaskScreen.swift */,
 				ACB6646D29879844002029CF /* AddCategoryScreen.swift */,
+				ACB6647129879AA3002029CF /* TaskListData.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -386,6 +389,7 @@
 				ACC1E58F2980FEBA009F09C1 /* DisplayCategoryView.swift in Sources */,
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,
 				ACC1E59629810D25009F09C1 /* Color.swift in Sources */,
+				ACB6647229879AA3002029CF /* TaskListData.swift in Sources */,
 				ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */,
 				ACB6646E29879844002029CF /* AddCategoryScreen.swift in Sources */,
 				AC0C44CA29852EEE001618A5 /* TaskList.swift in Sources */,
