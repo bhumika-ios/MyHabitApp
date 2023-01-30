@@ -65,13 +65,17 @@ struct AddTaskScreen: View {
                 HStack(spacing: 20){
                   //  HStack{
                         Picker("Select Category", selection: $category) {
-                            
-                            ForEach(categories) {
-                                
-                                Text($0.title!).tag($0.id)
-                                CategoryIconView(systemIcon: $0.systemIcon! , color: $0.color != nil ? Color(hex: $0.color!)! : Color.pink)
+                         //   HStack{
+                                ForEach(categories) {
+                                    
+                                    Text($0.title!).tag($0.id)
+                
+                                //    CategoryIconView(systemIcon: $0.systemIcon! , color: $0.color != nil ? Color(hex: $0.color!)! : Color.pink).tag($0.id)
+                             //   }
                             }
+                          //  .padding()
                         }
+                       
                         
                    // }
                     
@@ -105,11 +109,14 @@ struct AddTaskScreen: View {
                                                         //.environmentObject(taskModel)
                                                 }
                     }
+                    .disabled(taskName == "")
+                   
                     
 //
                 }
+               
             }
-            .navigationTitle("Publish Todo")
+            .navigationTitle("Task")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                // .overlay(alignment: .trailing){

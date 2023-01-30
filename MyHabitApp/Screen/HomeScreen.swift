@@ -17,14 +17,23 @@ struct HomeScreen: View {
             MainScreen()
                 .tabItem {
                     Image(systemName: "list.dash")
+                    Text("List")
+                }
+           DisplayTaskView()
+           
+                .tabItem {
+                    Image(systemName: "checkmark.square")
+                    
+                    Text("Task")
                 }
             AddCategoryScreen()
            
                 .tabItem {
                     Image(systemName: "plus.rectangle.on.folder")
+                    Text("Category")
                 }
             
-           
+//           DisplayCategoryView()
 //                .tabItem {
 //                    Image(systemName: "chart.bar")
 //                }

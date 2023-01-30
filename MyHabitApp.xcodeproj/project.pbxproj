@@ -39,6 +39,7 @@
 		ACC1E59829810D45009F09C1 /* PersistenceController.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59729810D45009F09C1 /* PersistenceController.swift */; };
 		ACC1E59A29810E78009F09C1 /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59929810E78009F09C1 /* CategoryIconView.swift */; };
 		ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59B29810F15009F09C1 /* CardView.swift */; };
+		ACD21BE22987B5CA00D69B9B /* DisplayTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */; };
 		ACE995402977D68000CB52AE /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9953F2977D68000CB52AE /* CoreDataManager.swift */; };
 /* End PBXBuildFile section */
 
@@ -95,6 +96,7 @@
 		ACC1E59729810D45009F09C1 /* PersistenceController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PersistenceController.swift; sourceTree = "<group>"; };
 		ACC1E59929810E78009F09C1 /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
 		ACC1E59B29810F15009F09C1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
+		ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskView.swift; sourceTree = "<group>"; };
 		ACE9953F2977D68000CB52AE /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -222,6 +224,7 @@
 				ACB664692987914E002029CF /* AddTaskScreen.swift */,
 				ACB6646D29879844002029CF /* AddCategoryScreen.swift */,
 				ACB6647129879AA3002029CF /* TaskListData.swift */,
+				ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */,
 			);
 			path = Screen;
 			sourceTree = "<group>";
@@ -400,6 +403,7 @@
 				AC45868B297176620014A3E5 /* AddNewTask.swift in Sources */,
 				AC0C44C429852B92001618A5 /* TaskItemView.swift in Sources */,
 				ACC1E59429810D16009F09C1 /* Category.swift in Sources */,
+				ACD21BE22987B5CA00D69B9B /* DisplayTaskView.swift in Sources */,
 				ACB66466298790CE002029CF /* HomeScreen.swift in Sources */,
 				ACC1E59829810D45009F09C1 /* PersistenceController.swift in Sources */,
 				AC0C44C829852E2D001618A5 /* SectionTitleView.swift in Sources */,

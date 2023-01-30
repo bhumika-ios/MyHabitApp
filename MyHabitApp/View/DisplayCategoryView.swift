@@ -87,16 +87,16 @@ struct DisplayCategoryView: View {
             //                    .environmentObject(catModel)
             //                      //  .presentationDetents([ .height(180)])
             //                }
-            .toolbar {
-                ToolbarItem (placement: .primaryAction) {
-                    Button(action: { isAddTodoOpen = true }) {
-                        Image(systemName: "plus.circle")
-                            .sheet(isPresented: $isAddTodoOpen) {
-                                AddCategoryScreen()
-                            }
-                    }
-                }
-            }
+//            .toolbar {
+//                ToolbarItem (placement: .primaryAction) {
+//                    Button(action: { isAddTodoOpen = true }) {
+//                        Image(systemName: "plus.circle")
+//                            .sheet(isPresented: $isAddTodoOpen) {
+//                                AddCategoryScreen()
+//                            }
+//                    }
+//                }
+//            }
         }
             
         }

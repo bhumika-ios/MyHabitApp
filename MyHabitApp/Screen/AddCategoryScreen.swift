@@ -54,72 +54,89 @@ struct AddCategoryScreen: View {
     }
     var body: some View {
         NavigationView {
-            ScrollView {
-                VStack (spacing: 20) {
-                    VStack (alignment: .center, spacing: 20) {
-                        CategoryIconView(systemIcon: systemIcon, color: color, size: .lg)
-                        TextField("Title", text: $title)
-                            .padding(10)
-                            .background(Color(UIColor.systemGray6))
-                            .cornerRadius(10)
-                    }
-                    .padding()
-                    .background(Color(UIColor.systemGray5))
-                    .cornerRadius(10)
-                    
-                    LazyVGrid (columns: columns, spacing: 20) {
-                        ForEach(colors, id: \.self) { cl in
-                            ZStack {
-                                if cl.toHex()! == color.toHex()! {
+            ZStack{
+                VStack{
+                    //ScrollView {
+                    VStack (alignment:.leading,spacing: 20) {
+                        VStack (alignment: .center, spacing: 20) {
+                            CategoryIconView(systemIcon: systemIcon, color: color, size: .lg)
+                            TextField("Title", text: $title)
+                                .padding(10)
+                                .background(Color(UIColor.systemGray6))
+                                .cornerRadius(10)
+                        }
+                        .padding()
+                        .background(Color(UIColor.systemGray5))
+                        .cornerRadius(10)
+                        
+                        LazyVGrid (columns: columns, spacing: 20) {
+                            ForEach(colors, id: \.self) { cl in
+                                ZStack {
+                                    if cl.toHex()! == color.toHex()! {
+                                        Circle()
+                                            .foregroundColor(cl)
+                                            .frame(width: 45, height: 45)
+                                            .opacity(0.3)
+                                    }
+                                    
                                     Circle()
                                         .foregroundColor(cl)
-                                        .frame(width: 45, height: 45)
-                                        .opacity(0.3)
+                                        .frame(width: 30, height: 30)
+                                        .padding(15)
                                 }
-                                
-                                Circle()
-                                    .foregroundColor(cl)
-                                    .frame(width: 30, height: 30)
-                                    .padding(15)
-                            }
-                            .onTapGesture {
-                                withAnimation {
-                                    self.color = cl
-                                }
-                            }
-                        }
-                    }
-                    .padding()
-                    .background(Color(UIColor.systemGray5))
-                    .cornerRadius(10)
-                    
-                    LazyVGrid (columns: columns, spacing: 20) {
-                        ForEach(systemIcons, id: \.self) { icon in
-                           CategoryIconView(systemIcon: icon, color: self.systemIcon == icon ? self.color : Color(UIColor.systemGray3))
                                 .onTapGesture {
                                     withAnimation {
-                                        self.systemIcon = icon
+                                        self.color = cl
                                     }
                                 }
+                            }
                         }
+                        .padding()
+                        .background(Color(UIColor.systemGray5))
+                        .cornerRadius(10)
+                        
+                        LazyVGrid (columns: columns, spacing: 20) {
+                            ForEach(systemIcons, id: \.self) { icon in
+                                CategoryIconView(systemIcon: icon, color: self.systemIcon == icon ? self.color : Color(UIColor.systemGray3))
+                                    .onTapGesture {
+                                        withAnimation {
+                                            self.systemIcon = icon
+                                        }
+                                    }
+                            }
+                        }
+                        .padding()
+                        .background(Color(UIColor.systemGray5))
+                        .cornerRadius(10)
+                        
                     }
-                    .padding()
-                    .background(Color(UIColor.systemGray5))
-                    .cornerRadius(10)
+                    .padding(.top,-20)
+                    //.padding()
+                    VStack{
+              
+                    DisplayCategoryView()
+                   
+                  
+               }
+                    .padding(.top,25)
                 }
+                
             }
+        //    }
+           
             .padding()
             .toolbar {
-                ToolbarItem (placement: .navigationBarLeading) {
-                    Button (action: { dismiss() }) {
-                        Text("Cancel")
-                    }
-                }
+//                ToolbarItem (placement: .navigationBarLeading) {
+//                    Button (action: { dismiss() }) {
+//                        Text("Cancel")
+//                    }
+//                }
                 
                 ToolbarItem (placement: .primaryAction) {
                     Button (action: publishCategory) {
                         Text("Done")
                     }
+                    .disabled(title == "")
                 }
             }
             .navigationTitle("Publish Group")

@@ -21,12 +21,12 @@ struct TaskItemView: View {
     }
     
     var body: some View {
-        VStack {
+        VStack(alignment: .leading){
             HStack {
                 VStack (alignment: .leading, spacing: 5) {
                     HStack {
                         if task.isCompleted{
-                            VStack{
+                            VStack(alignment: .leading){
                                 if task.taskName != nil {
                                     Text(task.taskName!)
                                         .strikethrough()
@@ -34,7 +34,7 @@ struct TaskItemView: View {
                                             isEditTaskOpen.toggle()
                                         }
                                         .sheet(isPresented: $isEditTaskOpen) {
-                                          //  PublishTodoScreen(todo: todo)
+                                          AddTaskScreen(task: task)
                                         }
                                 }
                                 
@@ -47,14 +47,14 @@ struct TaskItemView: View {
                                 }
                             }
                         } else {
-                            VStack{
+                            VStack(alignment: .leading){
                                 if task.taskName != nil {
                                     Text(task.taskName!)
                                         .onTapGesture {
                                             isEditTaskOpen.toggle()
                                         }
                                         .sheet(isPresented: $isEditTaskOpen) {
-                                          //  PublishTodoScreen(todo: todo)
+                                            AddTaskScreen(task: task)
                                         }
                                 }
                                 

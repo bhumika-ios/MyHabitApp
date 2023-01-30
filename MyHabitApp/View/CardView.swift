@@ -22,29 +22,30 @@ struct CardView: View {
                CategoryIconView(systemIcon: category.systemIcon ?? "calendar", color: category.color != nil ? Color(hex: category.color!)! : Color.pink)
                 Spacer()
                 
-                if category.tasks != nil {
-                    Text("\(category.tasks!.count)")
-                        .foregroundColor(.primary)
-                        .bold()
-                }
+//                if category.tasks != nil {
+//                    Text("\(category.tasks!.count)")
+//                        .foregroundColor(.primary)
+//                        .bold()
+//                }
             }
+            
             
             if category.title != nil {
                 HStack {
                     Text(category.title!)
-                        .font(.system(size: 18))
+                        .font(.system(size: 12))
                         .bold()
                     Spacer()
                 }
             }
         }
         .padding(10)
-        .background(Color(UIColor.systemGray6))
-        .overlay(
-            RoundedRectangle(cornerRadius: 10)
-                .stroke(Color(isFilteredByCategory ? UIColor.systemGray5 : UIColor.systemGray6), lineWidth: 10)
-        )
-        .cornerRadius(10)
+//        .background(Color(UIColor.systemGray6))
+//        .overlay(
+//            RoundedRectangle(cornerRadius: 10)
+//                .stroke(Color(isFilteredByCategory ? UIColor.systemGray5 : UIColor.systemGray6), lineWidth: 10)
+//        )
+//        .cornerRadius(10)
         .onTapGesture {
             withAnimation {
                 onCategoryTap(category)
