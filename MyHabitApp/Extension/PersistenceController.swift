@@ -20,16 +20,17 @@ extension PersistenceController {
     }
 }
 
-//extension PersistenceController {
-//    func createTodo(context: NSManagedObjectContext, group: Group, title: String, doDate: Date) {
-//        let newTodo = Todo(context: context)
-//        newTodo.group = group
-//        newTodo.id = UUID()
-//        newTodo.title = title
-//      //  newTodo.createdAt = Date()
-//        newTodo.doDate = doDate
-//
-//        self.save(context: context)
-//    }
-//}
+extension PersistenceController {
+    func createTask(context: NSManagedObjectContext, category: Category, taskName: String,taskDescription : String, taskDate: Date) {
+        let newTask = Task(context: context)
+        newTask.category = category
+        newTask.id = UUID()
+        newTask.taskName = taskName
+        newTask.taskDescription = taskDescription
+      //  newTodo.createdAt = Date()
+        newTask.taskDate = taskDate
+
+        self.save(context: context)
+    }
+}
 
