@@ -37,14 +37,14 @@ struct DisplayTaskView: View {
                     //isAddTodoOpen = true
                 }label: {
                     Label{
-                       
+                        
                     }icon: {
                         Image(systemName: "plus")
                             .resizable()
                             .frame(width: 20, height: 20)
                             .padding()
-                          
-                           
+                        
+                        
                     }
                     
                     .foregroundColor(.white)
@@ -56,7 +56,7 @@ struct DisplayTaskView: View {
                     .padding()
                     
                 }
-             
+                
             }
             .sheet(isPresented: $showAddBottomSheet){
                 if #available(iOS 16.0, *) {
@@ -66,6 +66,7 @@ struct DisplayTaskView: View {
                     // Fallback on earlier versions
                 }
             }
+            .navigationTitle("Task List")
         }
     }
 }

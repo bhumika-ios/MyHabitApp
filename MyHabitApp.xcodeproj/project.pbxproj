@@ -40,6 +40,8 @@
 		ACC1E59A29810E78009F09C1 /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59929810E78009F09C1 /* CategoryIconView.swift */; };
 		ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59B29810F15009F09C1 /* CardView.swift */; };
 		ACD21BE22987B5CA00D69B9B /* DisplayTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */; };
+		ACF63D752988FBFB0003C06D /* HabitHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF63D742988FBFB0003C06D /* HabitHomeView.swift */; };
+		ACF63D772988FFDB0003C06D /* AddHabitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF63D762988FFDB0003C06D /* AddHabitScreen.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -96,6 +98,8 @@
 		ACC1E59929810E78009F09C1 /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
 		ACC1E59B29810F15009F09C1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskView.swift; sourceTree = "<group>"; };
+		ACF63D742988FBFB0003C06D /* HabitHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHomeView.swift; sourceTree = "<group>"; };
+		ACF63D762988FFDB0003C06D /* AddHabitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitScreen.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -146,11 +150,9 @@
 		AC458657297173670014A3E5 /* MyHabitApp */ = {
 			isa = PBXGroup;
 			children = (
+				ACF63D732988FBE80003C06D /* Habit */,
+				ACF63D722988FBB00003C06D /* Task */,
 				ACD21BE32987CF9700D69B9B /* Other */,
-				ACB66464298790BC002029CF /* Screen */,
-				ACC1E59229810CFB009F09C1 /* Extension */,
-				AC45868C297176BD0014A3E5 /* ViewModel */,
-				AC458687297175030014A3E5 /* View */,
 				AC458658297173670014A3E5 /* MyHabitAppApp.swift */,
 				AC45865A297173670014A3E5 /* ContentView.swift */,
 				AC45865C297173690014A3E5 /* Assets.xcassets */,
@@ -243,6 +245,26 @@
 				ACC1E5892980FB98009F09C1 /* AddCategory.swift */,
 			);
 			path = Other;
+			sourceTree = "<group>";
+		};
+		ACF63D722988FBB00003C06D /* Task */ = {
+			isa = PBXGroup;
+			children = (
+				AC458687297175030014A3E5 /* View */,
+				ACC1E59229810CFB009F09C1 /* Extension */,
+				AC45868C297176BD0014A3E5 /* ViewModel */,
+				ACB66464298790BC002029CF /* Screen */,
+			);
+			path = Task;
+			sourceTree = "<group>";
+		};
+		ACF63D732988FBE80003C06D /* Habit */ = {
+			isa = PBXGroup;
+			children = (
+				ACF63D742988FBFB0003C06D /* HabitHomeView.swift */,
+				ACF63D762988FFDB0003C06D /* AddHabitScreen.swift */,
+			);
+			path = Habit;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -387,11 +409,13 @@
 				ACC1E58D2980FBB3009F09C1 /* CategoryViewModel.swift in Sources */,
 				ACC1E58F2980FEBA009F09C1 /* DisplayCategoryView.swift in Sources */,
 				AC458689297175240014A3E5 /* HomeView.swift in Sources */,
+				ACF63D752988FBFB0003C06D /* HabitHomeView.swift in Sources */,
 				ACC1E59629810D25009F09C1 /* Color.swift in Sources */,
 				ACB6647229879AA3002029CF /* TaskListData.swift in Sources */,
 				ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */,
 				ACB6646E29879844002029CF /* AddCategoryScreen.swift in Sources */,
 				AC0C44CA29852EEE001618A5 /* TaskList.swift in Sources */,
+				ACF63D772988FFDB0003C06D /* AddHabitScreen.swift in Sources */,
 				AC61F103297552640003C42E /* AddBottomSelectionSheet.swift in Sources */,
 				AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */,
 				ACC1E58A2980FB98009F09C1 /* AddCategory.swift in Sources */,

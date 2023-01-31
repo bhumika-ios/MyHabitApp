@@ -33,4 +33,17 @@ extension PersistenceController {
         self.save(context: context)
     }
 }
+extension PersistenceController {
+    func createHabit(context: NSManagedObjectContext, category: Category, title: String,remainderText : String, dateAdded: Date) {
+        let newHabit = Habit(context: context)
+       // newHabit.category = category
+        newHabit.id = UUID()
+        newHabit.title = title
+        newHabit.remainderText = remainderText
+      //  newTodo.createdAt = Date()
+        newHabit.dateAdded = dateAdded
+
+        self.save(context: context)
+    }
+}
 
