@@ -23,6 +23,9 @@ struct PersistenceController {
         for _ in 0..<3 {
             let newTask = TaskList.createFakeTask(category: categories[Int.random(in: 0..<categories.count)], context: viewContext)
         }
+        for _ in 0..<3 {
+            let newHabit = Habit.createFakeHabit(category: categories[Int.random(in: 0..<categories.count)], context: viewContext)
+        }
         
         result.save(context: viewContext)
         

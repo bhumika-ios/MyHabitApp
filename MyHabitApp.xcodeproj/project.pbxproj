@@ -11,6 +11,7 @@
 		AC0C44C629852D01001618A5 /* CheckboxView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C529852D01001618A5 /* CheckboxView.swift */; };
 		AC0C44C829852E2D001618A5 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C729852E2D001618A5 /* SectionTitleView.swift */; };
 		AC0C44CA29852EEE001618A5 /* TaskList1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C929852EEE001618A5 /* TaskList1.swift */; };
+		AC21D6F5298CE95C007BBC79 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21D6F4298CE95C007BBC79 /* Habit.swift */; };
 		AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC458658297173670014A3E5 /* MyHabitAppApp.swift */; };
 		AC45865B297173670014A3E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45865A297173670014A3E5 /* ContentView.swift */; };
 		AC45865D297173690014A3E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC45865C297173690014A3E5 /* Assets.xcassets */; };
@@ -70,6 +71,7 @@
 		AC0C44C529852D01001618A5 /* CheckboxView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckboxView.swift; sourceTree = "<group>"; };
 		AC0C44C729852E2D001618A5 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
 		AC0C44C929852EEE001618A5 /* TaskList1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList1.swift; sourceTree = "<group>"; };
+		AC21D6F4298CE95C007BBC79 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
 		AC458655297173670014A3E5 /* MyHabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC458658297173670014A3E5 /* MyHabitAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitAppApp.swift; sourceTree = "<group>"; };
 		AC45865A297173670014A3E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -238,6 +240,7 @@
 				ACC1E59329810D16009F09C1 /* Category.swift */,
 				ACC1E59529810D25009F09C1 /* Color.swift */,
 				ACB6646B29879530002029CF /* TaskList.swift */,
+				AC21D6F4298CE95C007BBC79 /* Habit.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				ACB483D6298B98F100640796 /* HabitViewModel.swift in Sources */,
 				ACC1E59429810D16009F09C1 /* Category.swift in Sources */,
 				ACD21BE22987B5CA00D69B9B /* DisplayTaskView.swift in Sources */,
+				AC21D6F5298CE95C007BBC79 /* Habit.swift in Sources */,
 				ACB66466298790CE002029CF /* HomeScreen.swift in Sources */,
 				ACC1E59829810D45009F09C1 /* PersistenceController.swift in Sources */,
 				AC0C44C829852E2D001618A5 /* SectionTitleView.swift in Sources */,

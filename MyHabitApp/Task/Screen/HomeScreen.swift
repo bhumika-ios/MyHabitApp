@@ -19,6 +19,20 @@ struct HomeScreen: View {
                     Image(systemName: "list.dash")
                     Text("List")
                 }
+            DisplayHabitView()
+            
+                 .tabItem {
+                     Image(systemName: "checkmark.square")
+                     
+                     Text("Habit")
+                 }
+            NewHabit()
+            
+                 .tabItem {
+                     Image(systemName: "checkmark.square")
+                     
+                     Text("Habit")
+                 }
            DisplayTaskView()
            
                 .tabItem {
