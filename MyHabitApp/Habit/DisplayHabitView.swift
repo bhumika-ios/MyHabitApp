@@ -25,7 +25,7 @@ struct DisplayHabitView: View {
     }
     @ViewBuilder
     func HabitCardView(habit: Habit)-> some View{
-        VStack(spacing: 6){
+        VStack(alignment: .leading,spacing: 6){
             HStack{
                 Text(habit.title ?? "")
                     .font(.callout)
@@ -42,7 +42,12 @@ struct DisplayHabitView: View {
                     .font(.caption)
                     .foregroundColor(.gray)
             }
-            .padding(.horizontal,10)
+            if habit.category != nil {
+                Text("\(habit.category!.title!) | \(habit.readableDoDate)")
+                    .foregroundColor(Color.gray)
+                    .font(.system(size: 14))
+            }
+           // .padding(.horizontal,10)
             
             let calendar = Calendar.current
             let currentWeek = calendar.dateInterval(of: .weekOfMonth, for: Date())
