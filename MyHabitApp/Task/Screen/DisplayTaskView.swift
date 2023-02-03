@@ -20,7 +20,7 @@ struct DisplayTaskView: View {
                     ScrollView{
                         SectionTitleView(title: "")
                         
-                        TaskList(query: searchValue, category: filteredByCategory)
+                        TaskList1(query: searchValue, category: filteredByCategory)
                     }
                     .padding(.leading)
                     .padding(.trailing)

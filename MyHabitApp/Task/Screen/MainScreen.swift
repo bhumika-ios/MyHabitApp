@@ -8,7 +8,7 @@
 import SwiftUI
 
 struct MainScreen: View {
-    @FetchRequest(entity: Task.entity(), sortDescriptors: []) private var tasks: FetchedResults<Task>
+    @FetchRequest(entity: TaskList.entity(), sortDescriptors: []) private var tasks: FetchedResults<TaskList>
     
     @State private var searchValue = ""
     @State private var isAddCategoryOpen = false

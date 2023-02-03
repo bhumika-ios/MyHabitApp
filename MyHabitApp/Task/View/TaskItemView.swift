@@ -11,7 +11,7 @@ import CoreData
 struct TaskItemView: View {
     @Environment(\.managedObjectContext) private var moc
     
-    @ObservedObject var task: Task
+    @ObservedObject var task: TaskList
     
     @State private var doesClose = false
     @State private var isEditTaskOpen = false
@@ -94,7 +94,7 @@ struct TaskItemView: View {
     }
 }
 
-let task = Task.createFakeTask(category: Category())
+let task = TaskList.createFakeTask(category: Category())
 
 struct TaskItemView_Previews: PreviewProvider {
     static var previews: some View {

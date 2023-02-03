@@ -22,7 +22,7 @@ extension PersistenceController {
 
 extension PersistenceController {
     func createTask(context: NSManagedObjectContext, category: Category, taskName: String,taskDescription : String, taskDate: Date) {
-        let newTask = Task(context: context)
+        let newTask = TaskList(context: context)
         newTask.category = category
         newTask.id = UUID()
         newTask.taskName = taskName
@@ -34,11 +34,12 @@ extension PersistenceController {
     }
 }
 extension PersistenceController {
-    func createHabit(context: NSManagedObjectContext, category: Category, title: String,remainderText : String, dateAdded: Date) {
+    func createHabit(context: NSManagedObjectContext, category: Category, title: String,remainderText : String, dateAdded: Date, weekDays : [String]) {
         let newHabit = Habit(context: context)
         newHabit.category = category
         newHabit.id = UUID()
         newHabit.title = title
+        newHabit.weekDays = weekDays
         newHabit.remainderText = remainderText
       //  newTodo.createdAt = Date()
         newHabit.dateAdded = dateAdded

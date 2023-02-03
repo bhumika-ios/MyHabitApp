@@ -23,9 +23,9 @@ struct AddTaskScreen: View {
     @State private var isAddCategoryOpen = false
     @State private var backtoHome = false
     
-    var task: Task? = nil
+    var task: TaskList? = nil
     
-    init (task: Task? = nil) {
+    init (task: TaskList? = nil) {
         if let safeTask = task {
             self.task = safeTask
             self._taskName = .init(initialValue: safeTask.taskName!)
