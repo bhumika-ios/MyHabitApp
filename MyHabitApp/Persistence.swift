@@ -21,7 +21,7 @@ struct PersistenceController {
         }
         
         for _ in 0..<3 {
-            let newTask = Task.createFakeTask(category: categories[Int.random(in: 0..<categories.count)], context: viewContext)
+            let newTask = TaskList.createFakeTask(category: categories[Int.random(in: 0..<categories.count)], context: viewContext)
         }
         
         result.save(context: viewContext)
