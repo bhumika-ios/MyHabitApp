@@ -67,10 +67,23 @@ struct TaskItemView: View {
                             }
                         }
                     }
-                    if task.category != nil {
-                        Text("\(task.category!.title!) | \(task.readableDoDate)")
-                            .foregroundColor(Color.gray)
-                            .font(.system(size: 14))
+                    VStack{
+                        HStack{
+                            if task.category != nil {
+                                Text("\(task.category!.title!) | \(task.readableDoDate)")
+                              
+                            }
+                            
+                            Spacer()
+                            
+                            Text("Task")
+                                .offset(x:24)
+                                //.padding(.horizontal)
+                            // .padding()
+                        }
+                        
+                        .foregroundColor(Color.gray)
+                        .font(.system(size: 14))
                     }
                 }
                 

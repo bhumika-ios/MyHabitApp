@@ -8,11 +8,12 @@ import SwiftUI
 
 struct AddBottomSelectionSheet: View {
     @State private var isAddTodoOpen = false
+    @State private var isAddHabitOpen = false
     var body: some View {
         VStack(alignment: .leading){
             VStack{
                 Button{
-                    
+                    isAddHabitOpen.toggle()
                 } label: {
                     HStack{
                         Image(systemName: "heart.circle")
@@ -33,6 +34,9 @@ struct AddBottomSelectionSheet: View {
                             .resizable()
                             .frame(width: 10, height: 15)
                     }
+                }
+                .sheet(isPresented: $isAddHabitOpen) {
+                    AddHabitScreen()
                 }
                 .foregroundColor(.black)
                 Divider()
