@@ -165,38 +165,79 @@ struct MainScreen: View {
     }
     @ViewBuilder
     func TimelineViewRow(_ date: Date)->some View{
-        HStack(alignment: .top){
-            Text(date.toString("h a"))
-              //  .laila(14, .regular)
-                .font(.system(size: 14))
-                .frame(width: 45, alignment: .leading)
-            /// - filtering tasks
-            let calendar = Calendar.current
-            let filteredTasks = tasks.filter{
-                if let hour = calendar.dateComponents([.hour], from: date).hour,
-                   let taskHour = calendar.dateComponents([.hour], from: $0.taskDate ?? Date()).hour,
-                   /// - current day
-                   hour == taskHour && calendar.isDate($0.taskDate ?? Date(), inSameDayAs: currentDay){
-                  /// - filtering tasks based on hour and also verifying whether the date is the same as the selected week day
-                    return true
-                }
-                return false
-            }
-            if filteredTasks.isEmpty{
-                Rectangle()
-                    .stroke(.gray.opacity(0.5), style: StrokeStyle(lineWidth: 0.5, lineCap: .butt, lineJoin: .bevel, dash: [5], dashPhase: 5))
-                    .frame(height: 0.5)
-                    .offset(y: 10)
-            }else{
-                /// - task view
-                VStack(spacing: 10){
-                    ForEach(filteredTasks){ task in
-                       TaskItemView(task: task)
+     //   VStack{
+            HStack(alignment: .top){
+                
+                Text(date.toString("h a"))
+                //  .laila(14, .regular)
+                    .font(.system(size: 14))
+                    .frame(width: 45, alignment: .leading)
+                /// - filtering tasks
+               
+                    let calendar = Calendar.current
+                VStack{
+                    HStack{
+                        // HStack{
+                        let filteredTasks = tasks.filter{
+                            if let hour = calendar.dateComponents([.hour], from: date).hour,
+                               let taskHour = calendar.dateComponents([.hour], from: $0.taskDate ?? Date()).hour,
+                               /// - current day
+                               hour == taskHour && calendar.isDate($0.taskDate ?? Date(), inSameDayAs: currentDay){
+                                /// - filtering tasks based on hour and also verifying whether the date is the same as the selected week day
+                                return true
+                            }
+                            return false
+                        }
+                        if filteredTasks.isEmpty{
+                            Rectangle()
+                                .stroke(.gray.opacity(0.5), style: StrokeStyle(lineWidth: 0.5, lineCap: .butt, lineJoin: .bevel, dash: [5], dashPhase: 5))
+                                .frame(height: 0.5)
+                                .offset(y: 10)
+                        }else{
+                            /// - task view
+                            VStack(spacing: 10){
+                                ForEach(filteredTasks){ task in
+                                    TaskItemView(task: task)
+                                }
+                                
+                            }
+                        }
+                        //  }
                     }
+                   
+                        HStack{
+                            // let calendar = Calendar.current
+                            let filteredHabits = habits.filter{
+                                if let hour1 = calendar.dateComponents([.hour], from: date).hour,
+                                   let habitHour = calendar.dateComponents([.hour], from: $0.dateAdded ?? Date()).hour,
+                                   /// - current day
+                                   hour1 == habitHour && calendar.isDate($0.dateAdded ?? Date(), inSameDayAs: currentDay){
+                                    /// - filtering tasks based on hour and also verifying whether the date is the same as the selected week day
+                                    return true
+                                }
+                                return false
+                            }
+                            if filteredHabits.isEmpty{
+//                                Rectangle()
+//                                    .stroke(.gray.opacity(0.5), style: StrokeStyle(lineWidth: 0.5, lineCap: .butt, lineJoin: .bevel, dash: [5], dashPhase: 5))
+//                                    .frame(height: 0.5)
+//                                    .offset(y: 10)
+                            }else{
+                                /// - task view
+                                VStack(spacing: 10){
+                                    ForEach(filteredHabits){ habit in
+                                        HabitItemView(habit: habit)
+                                    }
+                                    
+                                }
+                            }
+                        }
+                    
+                    
                 }
             }
             
-        }
+      //  }
         .hAlign(.leading)
         .padding(.vertical,15)
     }

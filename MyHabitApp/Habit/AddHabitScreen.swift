@@ -176,7 +176,7 @@ struct AddHabitScreen: View {
                         
                     .fullScreenCover(isPresented: $backtoHome){
                                         }content: {
-                                           DisplayHabitView()
+                                           MainScreen()
                                                 //.environmentObject(taskModel)
                                         }
             

@@ -22,17 +22,11 @@ struct HomeScreen: View {
             DisplayHabitView()
             
                  .tabItem {
-                     Image(systemName: "checkmark.square")
-                     
+                     Image(systemName: "star.circle")
+                    
                      Text("Habit")
                  }
-            NewHabit()
-            
-                 .tabItem {
-                     Image(systemName: "checkmark.square")
-                     
-                     Text("Habit")
-                 }
+          
            DisplayTaskView()
            
                 .tabItem {

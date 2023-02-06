@@ -43,6 +43,7 @@
 		ACC1E59A29810E78009F09C1 /* CategoryIconView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59929810E78009F09C1 /* CategoryIconView.swift */; };
 		ACC1E59C29810F15009F09C1 /* CardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACC1E59B29810F15009F09C1 /* CardView.swift */; };
 		ACD21BE22987B5CA00D69B9B /* DisplayTaskView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */; };
+		ACE9A3302991104D00D0F095 /* HabitTaskItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACE9A32F2991104D00D0F095 /* HabitTaskItem.swift */; };
 		ACF63D752988FBFB0003C06D /* HabitHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF63D742988FBFB0003C06D /* HabitHomeView.swift */; };
 		ACF63D772988FFDB0003C06D /* AddHabitScreen.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF63D762988FFDB0003C06D /* AddHabitScreen.swift */; };
 		ACF63D7929892FAD0003C06D /* NewHabit.swift in Sources */ = {isa = PBXBuildFile; fileRef = ACF63D7829892FAD0003C06D /* NewHabit.swift */; };
@@ -106,6 +107,7 @@
 		ACC1E59929810E78009F09C1 /* CategoryIconView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryIconView.swift; sourceTree = "<group>"; };
 		ACC1E59B29810F15009F09C1 /* CardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CardView.swift; sourceTree = "<group>"; };
 		ACD21BE12987B5CA00D69B9B /* DisplayTaskView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DisplayTaskView.swift; sourceTree = "<group>"; };
+		ACE9A32F2991104D00D0F095 /* HabitTaskItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitTaskItem.swift; sourceTree = "<group>"; };
 		ACF63D742988FBFB0003C06D /* HabitHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HabitHomeView.swift; sourceTree = "<group>"; };
 		ACF63D762988FFDB0003C06D /* AddHabitScreen.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddHabitScreen.swift; sourceTree = "<group>"; };
 		ACF63D7829892FAD0003C06D /* NewHabit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHabit.swift; sourceTree = "<group>"; };
@@ -278,6 +280,7 @@
 				ACF63D7A298931570003C06D /* CategoryCardView.swift */,
 				ACB483D5298B98F100640796 /* HabitViewModel.swift */,
 				ACB483F8298BCF7400640796 /* DisplayHabitView.swift */,
+				ACE9A32F2991104D00D0F095 /* HabitTaskItem.swift */,
 			);
 			path = Habit;
 			sourceTree = "<group>";
@@ -440,6 +443,7 @@
 				AC61F10529755E5A0003C42E /* TabView.swift in Sources */,
 				AC45868B297176620014A3E5 /* AddNewTask.swift in Sources */,
 				AC0C44C429852B92001618A5 /* TaskItemView.swift in Sources */,
+				ACE9A3302991104D00D0F095 /* HabitTaskItem.swift in Sources */,
 				ACB483D6298B98F100640796 /* HabitViewModel.swift in Sources */,
 				ACC1E59429810D16009F09C1 /* Category.swift in Sources */,
 				ACD21BE22987B5CA00D69B9B /* DisplayTaskView.swift in Sources */,
