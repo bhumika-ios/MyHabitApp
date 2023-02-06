@@ -8,16 +8,59 @@
 import SwiftUI
 
 struct DisplayHabitView: View {
+    @State var showAddBottomSheet = false
     @FetchRequest(entity: Habit.entity(), sortDescriptors: []) private var habits: FetchedResults<Habit>
     var body: some View {
         NavigationView{
-            VStack{
-                ScrollView{
-                    ForEach(habits){ habit in
-                        HabitCardView(habit: habit)
+            ZStack{
+                VStack{
+                    ScrollView{
+                        ForEach(habits){ habit in
+                            HabitCardView(habit: habit)
+                        }
+                    }
+                    
+                    
+                }
+                
+            }
+            .overlay(alignment: .bottomTrailing){
+                
+                //MARK:Add button
+                Button{
+                    
+                    showAddBottomSheet.toggle()
+                    
+                }label: {
+                    Label{
+                        
+                    }icon: {
+                        Image(systemName: "plus")
+                            .resizable()
+                            .frame(width: 20, height: 20)
+                            .padding()
+                        
+                        
+                    }
+                    
+                    .foregroundColor(.white)
+                    .padding(.vertical, 12)
+                    .padding(.horizontal)
+                    .background(Color("Pink"))
+                    .frame(width: 43,height: 43)
+                    .cornerRadius(15)
+                    .padding()
+                  //  .offset(x:160 ,y: -10)
+                    
+                }
+                .sheet(isPresented: $showAddBottomSheet){
+                    if #available(iOS 16.0, *) {
+                        AddBottomSelectionSheet()
+                            .presentationDetents([.height(180), .height(180)])
+                    } else {
+                        // Fallback on earlier versions
                     }
                 }
-               
             }
             .navigationTitle("Habits")
         }
@@ -91,7 +134,7 @@ struct DisplayHabitView: View {
         .padding(.horizontal,6)
         .background{
             RoundedRectangle(cornerRadius: 12, style: .continuous)
-                .fill(.gray.opacity(0.5))
+                .fill(.gray.opacity(0.1))
         }
         .padding()
         .padding(.vertical,-10)
