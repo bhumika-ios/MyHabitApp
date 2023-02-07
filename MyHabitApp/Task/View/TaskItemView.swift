@@ -30,61 +30,102 @@ struct TaskItemView: View {
                                 if task.taskName != nil {
                                     Text(task.taskName!)
                                         .strikethrough()
-                                        .onTapGesture {
-                                            isEditTaskOpen.toggle()
-                                        }
-                                        .sheet(isPresented: $isEditTaskOpen) {
-                                          AddTaskScreen(task: task)
-                                        }
+                                       
                                 }
                                 
                                 
-                                if task.description != nil {
+                                if task.taskDescription != nil {
                                     
                                     Text(task.taskDescription!)
                                         .font(.system(size: 14))
                                         .strikethrough()
+                                }
+                                VStack{
+                                    HStack{
+                                        if task.category != nil {
+                                            Text("\(task.category!.title!) | \(task.readableDoDate)")
+                                                .strikethrough()
+                                          
+                                        }
+                                        
+                                        Spacer()
+                                        
+                                        Text("Task")
+                                            .offset(x:24)
+                                            //.padding(.horizontal)
+                                        // .padding()
+                                    }
+                                    
+                                    .foregroundColor(Color.gray)
+                                    .font(.system(size: 14))
                                 }
                             }
                         } else {
                             VStack(alignment: .leading){
                                 if task.taskName != nil {
                                     Text(task.taskName!)
-                                        .onTapGesture {
-                                            isEditTaskOpen.toggle()
-                                        }
-                                        .sheet(isPresented: $isEditTaskOpen) {
-                                            AddTaskScreen(task: task)
-                                        }
+//                                        .onTapGesture {
+//                                            isEditTaskOpen.toggle()
+//                                        }
+//                                        .sheet(isPresented: $isEditTaskOpen) {
+//                                            AddTaskScreen(task: task)
+//                                        }
                                 }
                                 
-                                
-                                if task.description != nil {
-                                    
+                                if task.taskDescription != nil {
                                     Text(task.taskDescription!)
                                         .font(.system(size: 14))
                                 }
+//                                if task.description != nil {
+//
+//                                    Text(task.taskDescription!)
+//                                        .font(.system(size: 14))
+//                                }
+                                VStack{
+                                    HStack{
+                                        if task.category != nil {
+                                            Text("\(task.category!.title!) | \(task.readableDoDate)")
+                                          
+                                        }
+                                        
+                                        Spacer()
+                                        
+                                        Text("Task")
+                                            .offset(x:24)
+                                            //.padding(.horizontal)
+                                        // .padding()
+                                    }
+                                    
+                                    .foregroundColor(Color.gray)
+                                    .font(.system(size: 14))
+                                }
+                            }
+                            .onTapGesture {
+                                isEditTaskOpen.toggle()
+                            }
+                            .sheet(isPresented: $isEditTaskOpen) {
+                              AddTaskScreen(task: task)
                             }
                         }
                     }
-                    VStack{
-                        HStack{
-                            if task.category != nil {
-                                Text("\(task.category!.title!) | \(task.readableDoDate)")
-                              
-                            }
-                            
-                            Spacer()
-                            
-                            Text("Task")
-                                .offset(x:24)
-                                //.padding(.horizontal)
-                            // .padding()
-                        }
-                        
-                        .foregroundColor(Color.gray)
-                        .font(.system(size: 14))
-                    }
+//                    VStack{
+//                        HStack{
+//                            if task.category != nil {
+//                                Text("\(task.category!.title!) | \(task.readableDoDate)")
+//
+//                            }
+//
+//                            Spacer()
+//
+//                            Text("Task")
+//                                .offset(x:24)
+//                                //.padding(.horizontal)
+//                            // .padding()
+//                        }
+//
+//                        .foregroundColor(Color.gray)
+//                        .font(.system(size: 14))
+//                    }
                 }
                 
                 Spacer()
