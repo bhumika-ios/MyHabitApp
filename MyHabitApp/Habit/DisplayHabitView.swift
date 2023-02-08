@@ -15,42 +15,49 @@ struct DisplayHabitView: View {
             ZStack{
                 VStack{
                     ScrollView{
-                        ForEach(habits){ habit in
-                            HabitCardView(habit: habit)
+                        //SectionTitleView(title: "")
+                        VStack{
+                            ForEach(habits){ habit in
+                                HabitCardView(habit: habit)
+                                
+                                
+                            }
                         }
+                        .padding(.leading)
+                        .padding(.trailing)
+                        
+                        
+                        .navigationBarTitleDisplayMode(.inline)
                     }
-                    
-                    
                 }
-                
-            }
-            .overlay(alignment: .bottomTrailing){
-                
-                //MARK:Add button
-                Button{
+                .overlay(alignment: .bottomTrailing){
                     
-                    showAddBottomSheet.toggle()
-                    
-                }label: {
-                    Label{
+                    //MARK:Add button
+                    Button{
+                        //taskModel.OpenEditTask.toggle()
+                        showAddBottomSheet.toggle()
+                        //isAddTodoOpen = true
+                    }label: {
+                        Label{
+                            
+                        }icon: {
+                            Image(systemName: "plus")
+                                .resizable()
+                                .frame(width: 20, height: 20)
+                                .padding()
+                            
+                            
+                        }
                         
-                    }icon: {
-                        Image(systemName: "plus")
-                            .resizable()
-                            .frame(width: 20, height: 20)
-                            .padding()
-                        
+                        .foregroundColor(.white)
+                        .padding(.vertical, 12)
+                        .padding(.horizontal)
+                        .background(Color("Pink"))
+                        .frame(width: 43,height: 43)
+                        .cornerRadius(15)
+                        .padding()
                         
                     }
-                    
-                    .foregroundColor(.white)
-                    .padding(.vertical, 12)
-                    .padding(.horizontal)
-                    .background(Color("Pink"))
-                    .frame(width: 43,height: 43)
-                    .cornerRadius(15)
-                    .padding()
-                  //  .offset(x:160 ,y: -10)
                     
                 }
                 .sheet(isPresented: $showAddBottomSheet){
@@ -61,8 +68,8 @@ struct DisplayHabitView: View {
                         // Fallback on earlier versions
                     }
                 }
+                .navigationTitle("Habits")
             }
-            .navigationTitle("Habits")
         }
         
     }

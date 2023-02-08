@@ -192,7 +192,7 @@ struct AddHabitScreen: View {
                         if let editHabit =  habit {
                             env.managedObjectContext.delete(editHabit)
                             try? env.managedObjectContext.save()
-                            env.dismiss()
+                       
                         }
                         
                         

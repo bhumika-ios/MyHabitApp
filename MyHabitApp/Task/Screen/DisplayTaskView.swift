@@ -19,11 +19,19 @@ struct DisplayTaskView: View {
                 VStack{
                     ScrollView{
                         SectionTitleView(title: "")
-                        
-                        TaskList1(query: searchValue, category: filteredByCategory)
+                        VStack{
+                            TaskList1(query: searchValue, category: filteredByCategory)
+                                .background{
+                                    RoundedRectangle(cornerRadius: 12, style: .continuous)
+                                        .fill(.gray.opacity(0.1))
+                                        .padding(.horizontal,-60)
+                                }
+                               
+                        }
                     }
                     .padding(.leading)
                     .padding(.trailing)
+                    
                     
                     .navigationBarTitleDisplayMode(.inline)
                 }

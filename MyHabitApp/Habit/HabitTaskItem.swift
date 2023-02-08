@@ -16,7 +16,7 @@ struct HabitItemView: View {
     @State private var doesClose = false
     @State private var isEditTaskOpen = false
     
-    private func deleteTask(object: NSManagedObject) {
+    private func deleteHabit(object: NSManagedObject) {
         PersistenceController.shared.delete(context: moc, object: object)
     }
     
