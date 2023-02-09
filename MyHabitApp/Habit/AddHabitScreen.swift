@@ -7,7 +7,6 @@
 
 import SwiftUI
 
-
 struct AddHabitScreen: View {
   //  @EnvironmentObject var habitModel: HabitViewModel
     @Environment(\.managedObjectContext) private var moc
@@ -15,7 +14,7 @@ struct AddHabitScreen: View {
     @Environment(\.self) var env
     @State private var color = Color.indigo
     @State private var systemIcon = "calendar"
-    
+    @State private var notificationAccess: Bool = false
     @FetchRequest(entity: Category.entity(), sortDescriptors: []) private var categories: FetchedResults<Category>
     
     @State private var title = ""
@@ -63,6 +62,7 @@ struct AddHabitScreen: View {
            
           
     }
+  
     var body: some View {
         NavigationView {
             Form {
@@ -89,7 +89,7 @@ struct AddHabitScreen: View {
                 VStack(alignment: .leading, spacing: 6){
                     Text("Frequency")
                         .font(.callout.bold())
-                    var weekDays = Calendar.current.weekdaySymbols
+                    let weekDays = Calendar.current.weekdaySymbols
                     HStack(spacing: 10){
                         ForEach(weekDays,id: \.self){day in
                             let index = weekDays1.firstIndex { value in
@@ -192,7 +192,7 @@ struct AddHabitScreen: View {
                         if let editHabit =  habit {
                             env.managedObjectContext.delete(editHabit)
                             try? env.managedObjectContext.save()
-                       
+                           // env.dismiss()
                         }
                         
                         

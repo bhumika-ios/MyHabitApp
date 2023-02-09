@@ -22,7 +22,7 @@ struct AddTaskScreen: View {
     @State private var taskDate = Date()
     @State private var isAddCategoryOpen = false
     @State private var backtoHome = false
-    
+    let notify = NotificationHandler()
     var task: TaskList? = nil
     
     init (task: TaskList? = nil) {
@@ -84,7 +84,7 @@ struct AddTaskScreen: View {
                 DatePicker(
                     "Do Date",
                     selection: $taskDate,
-                    displayedComponents: [.date]
+                    in: Date()...
                 )
             }
             .toolbar {
@@ -97,6 +97,9 @@ struct AddTaskScreen: View {
               
                 ToolbarItem (placement: .primaryAction) {
                     Button (action:{ publishTask()
+                        notify.sendNotification(date: taskDate, type: "date", title: taskName, body: taskDescription)
+                        
+                       
                         backtoHome.toggle()
                     }) {
                         Text("Done")
@@ -112,6 +115,24 @@ struct AddTaskScreen: View {
                     .disabled(taskName == "")
                    
                     
+//
+                }
+                ToolbarItem (placement: .primaryAction) {
+                    Button (action:{
+                        notify.askNotification()
+                    //    NotificationManager.instance.requestAuthentication()
+                      //  backtoHome.toggle()
+                    }) {
+                        Image(systemName: "bell")
+
+//                            .onTapGesture {
+//                                backtoHome.toggle()
+//                            }
+//
+                    }
+
+
+
 //
                 }
                

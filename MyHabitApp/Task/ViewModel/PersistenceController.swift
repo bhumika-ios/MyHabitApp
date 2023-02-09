@@ -21,7 +21,7 @@ extension PersistenceController {
 }
 
 extension PersistenceController {
-    func createTask(context: NSManagedObjectContext, category: Category, taskName: String,taskDescription : String, taskDate: Date) {
+    func createTask(context: NSManagedObjectContext , category: Category, taskName: String,taskDescription : String, taskDate: Date) {
         let newTask = TaskList(context: context)
         newTask.category = category
         newTask.id = UUID()
