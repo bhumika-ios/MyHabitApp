@@ -56,6 +56,7 @@ struct DisplayHabitView: View {
                         .frame(width: 43,height: 43)
                         .cornerRadius(15)
                         .padding()
+                        //.offset(x: 150)
                         
                     }
                     

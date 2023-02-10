@@ -7,6 +7,7 @@
 //
 import Foundation
 import UserNotifications
+import UIKit
 
 class NotificationHandler{
     // @State private var showAlert: Bool = false
@@ -47,31 +48,31 @@ class NotificationHandler{
     func removePendingRequest(request: UNNotificationRequest) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])
     }
-        //    func application(_ application: UIApplication,didReceiveRemoteNotification userInfo: [AnyHashable: Any],fetchCompletionHandler completionHandler:@escaping (UIBackgroundFetchResult) -> Void) {
-        //
-        //        let state : UIApplication.State = application.applicationState
-        //            if (state == .inactive || state == .background) {
-        //                // go to screen relevant to Notification content
-        //                print("background")
-        //            } else {
-        //                // App is in UIApplicationStateActive (running in foreground)
-        //                print("foreground")
-        //
-        //            }
-        //        }
+            func application(_ application: UIApplication,didReceiveRemoteNotification userInfo: [AnyHashable: Any],fetchCompletionHandler completionHandler:@escaping (UIBackgroundFetchResult) -> Void) {
+        
+                let state : UIApplication.State = application.applicationState
+                    if (state == .inactive || state == .background) {
+                        // go to screen relevant to Notification content
+                        print("background")
+                    } else {
+                        // App is in UIApplicationStateActive (running in foreground)
+                        print("foreground")
+        
+                    }
+                }
     
-    //class NotificationDelegate: NSObject,ObservableObject,UNUserNotificationCenterDelegate{
-    //    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
-    //        completionHandler([.badge,.banner,.sound])
-    //    }
-    
-    //
+    class NotificationDelegate: NSObject,ObservableObject,UNUserNotificationCenterDelegate{
+        func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+            completionHandler([.badge,.banner,.sound])
+        }
     
     
-    //}
-    //class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-    //
-    //    let notificationCenter = UNUserNotificationCenter.current()
-    //    notificationCenter.delegate = self
-    //}
+    
+    
+    }
+//    class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+//    
+//        let notificationCenter = UNUserNotificationCenter.current()
+//        notificationCenter.delegate = self
+//    }
 }

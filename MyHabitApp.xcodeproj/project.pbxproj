@@ -12,6 +12,7 @@
 		AC0C44C829852E2D001618A5 /* SectionTitleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C729852E2D001618A5 /* SectionTitleView.swift */; };
 		AC0C44CA29852EEE001618A5 /* TaskList1.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC0C44C929852EEE001618A5 /* TaskList1.swift */; };
 		AC21D6F5298CE95C007BBC79 /* Habit.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC21D6F4298CE95C007BBC79 /* Habit.swift */; };
+		AC27E59629964263003FBFF2 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC27E59529964263003FBFF2 /* AppDelegate.swift */; };
 		AC458659297173670014A3E5 /* MyHabitAppApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC458658297173670014A3E5 /* MyHabitAppApp.swift */; };
 		AC45865B297173670014A3E5 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AC45865A297173670014A3E5 /* ContentView.swift */; };
 		AC45865D297173690014A3E5 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AC45865C297173690014A3E5 /* Assets.xcassets */; };
@@ -74,6 +75,7 @@
 		AC0C44C729852E2D001618A5 /* SectionTitleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTitleView.swift; sourceTree = "<group>"; };
 		AC0C44C929852EEE001618A5 /* TaskList1.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskList1.swift; sourceTree = "<group>"; };
 		AC21D6F4298CE95C007BBC79 /* Habit.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Habit.swift; sourceTree = "<group>"; };
+		AC27E59529964263003FBFF2 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		AC458655297173670014A3E5 /* MyHabitApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyHabitApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		AC458658297173670014A3E5 /* MyHabitAppApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyHabitAppApp.swift; sourceTree = "<group>"; };
 		AC45865A297173670014A3E5 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -173,6 +175,7 @@
 				AC458661297173690014A3E5 /* Persistence.swift */,
 				AC458663297173690014A3E5 /* MyHabitApp.xcdatamodeld */,
 				AC45865E297173690014A3E5 /* Preview Content */,
+				AC27E59529964263003FBFF2 /* AppDelegate.swift */,
 			);
 			path = MyHabitApp;
 			sourceTree = "<group>";
@@ -420,6 +423,7 @@
 			files = (
 				ACF63D7929892FAD0003C06D /* NewHabit.swift in Sources */,
 				ACB66468298790F4002029CF /* MainScreen.swift in Sources */,
+				AC27E59629964263003FBFF2 /* AppDelegate.swift in Sources */,
 				ACB6646A2987914E002029CF /* AddTaskScreen.swift in Sources */,
 				ACC1E59A29810E78009F09C1 /* CategoryIconView.swift in Sources */,
 				ACF63D7B298931570003C06D /* CategoryCardView.swift in Sources */,
