@@ -40,7 +40,7 @@ struct TaskItemView: View {
                                         .font(.system(size: 14))
                                         .strikethrough()
                                 }
-                                VStack{
+                                VStack(alignment: .leading){
                                     HStack{
                                         if task.category != nil {
                                             Text("\(task.category!.title!) | \(task.readableDoDate)")
@@ -59,6 +59,7 @@ struct TaskItemView: View {
                                     .foregroundColor(Color.gray)
                                     .font(.system(size: 14))
                                 }
+                                .multilineTextAlignment(.leading)
                             }
                         } else {
                             VStack(alignment: .leading){
@@ -81,7 +82,7 @@ struct TaskItemView: View {
 //                                    Text(task.taskDescription!)
 //                                        .font(.system(size: 14))
 //                                }
-                                VStack{
+                                VStack(alignment: .leading){
                                     HStack{
                                         if task.category != nil {
                                             Text("\(task.category!.title!) | \(task.readableDoDate)")

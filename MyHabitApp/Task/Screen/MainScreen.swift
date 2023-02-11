@@ -60,6 +60,7 @@ struct MainScreen: View {
                  
                 }
             }
+            .tint(.black)
         }
         .sheet(isPresented: $showAddBottomSheet){
             if #available(iOS 16.0, *) {

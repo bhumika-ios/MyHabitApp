@@ -41,7 +41,7 @@ struct AddCategoryScreen: View {
             PersistenceController.shared.createCategory(context: moc, title: title, symbolIcon: systemIcon, color: color)
         }
         
-        dismiss()
+      //  dismiss()
     }
     
     init(category: Category? = nil) {
@@ -148,7 +148,7 @@ struct AddCategoryScreen: View {
                         if let editCategory =  category {
                             env.managedObjectContext.delete(editCategory)
                             try? env.managedObjectContext.save()
-                            env.dismiss()
+                          //  env.dismiss()
                         }
                             
                         

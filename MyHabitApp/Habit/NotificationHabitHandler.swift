@@ -8,10 +8,13 @@
 import Foundation
 import UserNotifications
 import UIKit
+import CoreData
+import SwiftUI
 
 class NotificationHandler{
     // @State private var showAlert: Bool = false
     //@Published private(set) var data: [TaskModel] = []
+    @FetchRequest(entity: TaskList.entity(), sortDescriptors: []) private var tasks: FetchedResults<TaskList>
     func askNotification(){
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { success, error in
             if success {
@@ -41,10 +44,11 @@ class NotificationHandler{
         
         UNUserNotificationCenter.current().add(request)
     }
-//    func removeScheduledNotification(task: TaskList) {
-//        UNUserNotificationCenter.current()
-//            .removePendingNotificationRequests(withIdentifiers: [task.id])
-//    }
+    func removeScheduledNotification(task: TaskList) {
+        let id = UUID().uuidString
+        UNUserNotificationCenter.current()
+            .removePendingNotificationRequests(withIdentifiers:[id])
+    }
     func removePendingRequest(request: UNNotificationRequest) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])
     }
@@ -71,7 +75,7 @@ class NotificationHandler{
     
     }
 //    class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
-//    
+//
 //        let notificationCenter = UNUserNotificationCenter.current()
 //        notificationCenter.delegate = self
 //    }

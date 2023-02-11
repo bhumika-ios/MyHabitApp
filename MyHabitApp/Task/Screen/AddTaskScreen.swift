@@ -61,7 +61,9 @@ struct AddTaskScreen: View {
         NavigationView {
             Form {
                 TextField("TaskName", text: $taskName)
+                    .multilineTextAlignment(.leading)
                 TextField("TaskDescription", text: $taskDescription)
+                    .multilineTextAlignment(.leading)
                 HStack(spacing: 20){
                   //  HStack{
                         Picker("Select Category", selection: $category) {
@@ -86,11 +88,13 @@ struct AddTaskScreen: View {
                     selection: $taskDate,
                     in: Date()...
                 )
+              
             }
             .toolbar {
                 ToolbarItem (placement: .navigationBarLeading) {
                     Button (action: { dismiss() }) {
                         Text("Cancel")
+                            .foregroundColor(.black)
                     }
                 }
                 
@@ -103,6 +107,7 @@ struct AddTaskScreen: View {
                         backtoHome.toggle()
                     }) {
                         Text("Done")
+                            .foregroundColor(.black)
 //                            .onTapGesture {
 //                                backtoHome.toggle()
 //                            }
@@ -145,7 +150,7 @@ struct AddTaskScreen: View {
                         if let editTask =  task {
                             env.managedObjectContext.delete(editTask)
                             try? env.managedObjectContext.save()
-                            env.dismiss()
+                         //   env.dismiss()
                         }
                         
                         
