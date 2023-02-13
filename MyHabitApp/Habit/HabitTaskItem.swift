@@ -12,12 +12,13 @@ struct HabitItemView: View {
     @Environment(\.managedObjectContext) private var moc
     
     @ObservedObject var habit: Habit
-    
+    @Environment(\.dismiss) private var dismiss
     @State private var doesClose = false
     @State private var isEditTaskOpen = false
     
     private func deleteHabit(object: NSManagedObject) {
         PersistenceController.shared.delete(context: moc, object: object)
+        
     }
     
     var body: some View {
@@ -32,9 +33,11 @@ struct HabitItemView: View {
                                        // .strikethrough()
                                         .onTapGesture {
                                             isEditTaskOpen.toggle()
+                                          
                                         }
                                         .sheet(isPresented: $isEditTaskOpen) {
                                           AddHabitScreen(habit: habit)
+                                           
                                         }
                                 }
                                 

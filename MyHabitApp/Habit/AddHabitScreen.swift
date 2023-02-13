@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import CoreData
 
 struct AddHabitScreen: View {
   //  @EnvironmentObject var habitModel: HabitViewModel
@@ -25,7 +26,10 @@ struct AddHabitScreen: View {
     @State private var isRemainderOn = false
     @State private var isAddCategoryOpen = false
     @State private var backtoHome = false
-    
+    let notify = NotificationHandler()
+    init() {
+        requestAuthorization()
+    }
     var habit: Habit? = nil
     
     init (habit: Habit? = nil) {
@@ -36,6 +40,7 @@ struct AddHabitScreen: View {
             self._weekDays1 = .init(initialValue: safeHabit.weekDays!)
             self._dateAdded = .init(initialValue: safeHabit.dateAdded!)
             self._category = .init(initialValue: safeHabit.category!.id)
+            self._isRemainderOn = .init(initialValue: safeHabit.isRemainderOn)
         }
     }
     
@@ -43,6 +48,7 @@ struct AddHabitScreen: View {
         if self.category == nil {
             return
         }
+      
         
         let selectedCategory = categories.first(where: {$0.id == self.category!})
         
@@ -52,10 +58,11 @@ struct AddHabitScreen: View {
             habit?.weekDays = weekDays1
             habit?.category = selectedCategory
             habit?.dateAdded = dateAdded
+            habit?.isRemainderOn = isRemainderOn
             
             PersistenceController.shared.save(context: moc)
         } else {
-            PersistenceController.shared.createHabit(context: moc, category: selectedCategory!, title: title, remainderText: remainderText ,dateAdded: dateAdded, weekDays: weekDays1 )
+            PersistenceController.shared.createHabit(context: moc, category: selectedCategory!, title: title, remainderText: remainderText ,dateAdded: dateAdded, weekDays: weekDays1, isRemainderOn: isRemainderOn )
         }
         
        // dismiss()
@@ -165,6 +172,7 @@ struct AddHabitScreen: View {
               
                 ToolbarItem (placement: .navigationBarTrailing) {
                     Button(action: { publishHabit()
+                        notify.sendNotification(date: dateAdded, type: "date", title: title, body: remainderText)
                         backtoHome = true
                     })
                            {
@@ -176,7 +184,7 @@ struct AddHabitScreen: View {
                         
                     .fullScreenCover(isPresented: $backtoHome){
                                         }content: {
-                                           MainScreen()
+                                           HomeScreen()
                                                 //.environmentObject(taskModel)
                                         }
             
@@ -189,11 +197,9 @@ struct AddHabitScreen: View {
             .toolbar{
                // .overlay(alignment: .trailing){
                     Button{
-                        if let editHabit =  habit {
-                            env.managedObjectContext.delete(editHabit)
-                            try? env.managedObjectContext.save()
-                            //backtoHome.toggle()
-                          //  env.dismiss()
+                        if let delHabit =  habit {
+                            deleteHabit(object: delHabit)
+                           // env.dismiss()
                         }
                         
                         
@@ -206,7 +212,66 @@ struct AddHabitScreen: View {
                     }
                 // data filled show delete icon else not show
                     .opacity( habit == nil ? 0 : 1)
+                    .fullScreenCover(isPresented: $backtoHome){
+                                        }content: {
+                                           HomeScreen()
+                                                //.environmentObject(taskModel)
+                                        }
                // }
+            }
+        }
+    }
+    private func deleteHabit(object: NSManagedObject) {
+        PersistenceController.shared.delete(context: moc, object: object)
+    }
+    
+    //MARK: Scheduling notifications
+    func scheduleNotification() async throws -> [String] {
+        let content = UNMutableNotificationContent()
+        content.title = "Habit Remainder"
+        content.subtitle = remainderText
+        content.sound = .default
+        
+        var notificationsIDs: [String] = []
+        
+        let calendar = Calendar.current
+        let weekDaySybmols: [String] = calendar.weekdaySymbols
+        
+        for weekDay in weekDays1 {
+            let id = UUID().uuidString
+            let hour = calendar.component(.hour, from: dateAdded)
+            let minute = calendar.component(.minute, from: dateAdded)
+            let day = weekDaySybmols.firstIndex { currentDay in
+                return currentDay == weekDay
+            } ?? -1
+            
+            var components = DateComponents()
+            components.hour = hour
+            components.minute = minute
+            components.weekday = day + 1
+            
+            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+            
+            let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+            
+            try await UNUserNotificationCenter.current().add(request)
+            
+            notificationsIDs.append(id)
+            
+        }
+        
+        return notificationsIDs
+    }
+    
+    
+    //MARK: request notification
+    func requestAuthorization() {
+        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+        UNUserNotificationCenter.current().requestAuthorization(options: options) { authorizarionSuccess, error in
+            if let error = error {
+                print("Error \(error.localizedDescription)")
+            } else {
+                print("Authorization request success")
             }
         }
     }

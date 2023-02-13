@@ -18,6 +18,7 @@ struct TaskItemView: View {
     
     private func deleteTask(object: NSManagedObject) {
         PersistenceController.shared.delete(context: moc, object: object)
+       
     }
     
     var body: some View {

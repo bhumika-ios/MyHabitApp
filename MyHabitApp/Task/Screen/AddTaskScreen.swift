@@ -135,7 +135,7 @@ struct AddTaskScreen: View {
 //                            }
 //
                     }
-
+                    .opacity( task == nil ? 1 : 0)
 
 
 //
@@ -149,8 +149,10 @@ struct AddTaskScreen: View {
                     Button{
                         if let editTask =  task {
                             env.managedObjectContext.delete(editTask)
+                          //  backtoHome.toggle()
                             try? env.managedObjectContext.save()
-                         //   env.dismiss()
+                            //env.dismiss()
+                           
                         }
                         
                         
@@ -163,10 +165,13 @@ struct AddTaskScreen: View {
                     }
                 // data filled show delete icon else not show
                     .opacity( task == nil ? 0 : 1)
+                    
                // }
             }
+            
         }
     }
+    
 }
 
 struct AddTaskScreen_Previews: PreviewProvider {

@@ -161,6 +161,7 @@ struct AddCategoryScreen: View {
                     }
                    
                     .opacity(category  == nil ? 0 : 1)
+                
                // }
             }
         }

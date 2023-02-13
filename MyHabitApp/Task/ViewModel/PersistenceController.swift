@@ -34,7 +34,7 @@ extension PersistenceController {
     }
 }
 extension PersistenceController {
-    func createHabit(context: NSManagedObjectContext, category: Category, title: String,remainderText : String, dateAdded: Date, weekDays : [String]) {
+    func createHabit(context: NSManagedObjectContext, category: Category, title: String,remainderText : String, dateAdded: Date, weekDays : [String], isRemainderOn : Bool) {
         let newHabit = Habit(context: context)
         newHabit.category = category
         newHabit.id = UUID()
@@ -42,6 +42,8 @@ extension PersistenceController {
         newHabit.weekDays = weekDays
         newHabit.remainderText = remainderText
       //  newTodo.createdAt = Date()
+        newHabit.isRemainderOn = isRemainderOn
+        newHabit.notificationIDs = []
         newHabit.dateAdded = dateAdded
 
         self.save(context: context)
