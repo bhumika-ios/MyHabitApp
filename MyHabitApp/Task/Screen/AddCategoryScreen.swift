@@ -140,7 +140,7 @@ struct AddCategoryScreen: View {
                     .disabled(title == "")
                 }
             }
-            .navigationTitle("Publish Group")
+            .navigationTitle("Publish Category")
             .navigationBarTitleDisplayMode(.inline)
             .toolbar{
                // .overlay(alignment: .trailing){

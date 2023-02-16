@@ -48,7 +48,7 @@ struct AddHabitScreen: View {
         if self.category == nil {
             return
         }
-      
+        
         
         let selectedCategory = categories.first(where: {$0.id == self.category!})
         
@@ -145,12 +145,13 @@ struct AddHabitScreen: View {
                 }
                 
                 HStack{
-                   
-                    DatePicker(
-                        "Do Date",
-                        selection: $dateAdded,
-                        in: Date()...
-                    )
+                  //  DatePicker("Pick time", selection: $dateAdded, displayedComponents: [.date])
+                    MultiDatePicker("vbvb", selection: .constant([]))
+//                    DatePicker(
+//                        "Do Date",
+//                        selection: $dateAdded,
+//                        in: Date()...
+//                    )
                   //  Text(habitModel.dateAdded.formatted(date: .omitted, time: .shortened))
                 }
                
@@ -172,7 +173,7 @@ struct AddHabitScreen: View {
               
                 ToolbarItem (placement: .navigationBarTrailing) {
                     Button(action: { publishHabit()
-                        notify.sendNotification(date: dateAdded, type: "date", title: title, body: remainderText)
+                        scheduleNotification()
                         backtoHome = true
                     })
                            {
@@ -226,7 +227,7 @@ struct AddHabitScreen: View {
     }
     
     //MARK: Scheduling notifications
-    func scheduleNotification() async throws -> [String] {
+    func scheduleNotification() -> [String]  {
         let content = UNMutableNotificationContent()
         content.title = "Habit Remainder"
         content.subtitle = remainderText
@@ -254,17 +255,15 @@ struct AddHabitScreen: View {
             
             let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
             
-            try await UNUserNotificationCenter.current().add(request)
+        //    try await UNUserNotificationCenter.current().add(request)
             
             notificationsIDs.append(id)
+            UNUserNotificationCenter.current().add(request)
             
         }
         
         return notificationsIDs
     }
-    
-    
-    //MARK: request notification
     func requestAuthorization() {
         let options: UNAuthorizationOptions = [.alert, .sound, .badge]
         UNUserNotificationCenter.current().requestAuthorization(options: options) { authorizarionSuccess, error in
@@ -275,6 +274,8 @@ struct AddHabitScreen: View {
             }
         }
     }
+    
+   
 }
 
 struct AddHabitScreen_Previews: PreviewProvider {

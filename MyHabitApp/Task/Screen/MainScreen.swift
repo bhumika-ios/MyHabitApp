@@ -94,7 +94,9 @@ struct MainScreen: View {
                     .padding(.top, 15)
                 
                 ///- Current week Row
-                WeekRow()
+                ScrollView(.horizontal, showsIndicators: false){
+                    WeekRow()
+                }
             }
             .padding(15)
             .background{
@@ -304,7 +306,7 @@ extension Calendar{
     var currentWeek: [WeekDay]{
         guard let firstWeekDay = self.dateInterval(of: .weekOfMonth, for: Date())?.start else{ return []}
         var week: [WeekDay] = []
-        for index in 0..<7{
+        for index in 0..<30{
             if let day = self.date(byAdding: .day, value: index, to: firstWeekDay){
                 let weekDaySymbol: String = day.toString("EEEE") // - EEEE return the weekday symbol (e.g , Monday) from the given date
                 let isToday = self.isDateInToday(day)
