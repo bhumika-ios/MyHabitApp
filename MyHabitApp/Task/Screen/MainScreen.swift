@@ -212,9 +212,9 @@ struct MainScreen: View {
                             // let calendar = Calendar.current
                             let filteredHabits = habits.filter{
                                 if let hour1 = calendar.dateComponents([.hour], from: date).hour,
-                                   let habitHour = calendar.dateComponents([.hour], from: $0.dateAdded ?? Date()).hour,
+                                   let habitHour = calendar.dateComponents([.hour], from: $0.dateCreated ?? Date()).hour,
                                    /// - current day
-                                   hour1 == habitHour && calendar.isDate($0.dateAdded ?? Date(), inSameDayAs: currentDay){
+                                   hour1 == habitHour && calendar.isDate($0.dateCreated ?? Date(), inSameDayAs: currentDay){
                                     /// - filtering tasks based on hour and also verifying whether the date is the same as the selected week day
                                     return true
                                 }
@@ -231,7 +231,7 @@ struct MainScreen: View {
                                     ForEach(filteredHabits){ habit in
                                         HabitItemView(habit: habit)
                                     }
-                                    
+
                                 }
                             }
                         }

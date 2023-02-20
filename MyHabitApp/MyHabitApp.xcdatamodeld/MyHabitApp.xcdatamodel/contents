@@ -10,7 +10,7 @@
     </entity>
     <entity name="Habit" representedClassName="Habit" syncable="YES" codeGenerationType="class">
         <attribute name="color" optional="YES" attributeType="String"/>
-        <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
+        <attribute name="dateAdded" optional="YES" attributeType="Date" usesScalarValueType="NO" customClassName="[Date]"/>
         <attribute name="dateCreated" optional="YES" attributeType="Date" usesScalarValueType="NO"/>
         <attribute name="daysCompleted" optional="YES" attributeType="Transformable" customClassName="[String]"/>
         <attribute name="daysLost" optional="YES" attributeType="Transformable"/>

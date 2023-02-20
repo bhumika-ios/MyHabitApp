@@ -20,6 +20,7 @@ struct AddHabitScreen: View {
     
     @State private var title = ""
     @State private var remainderText = ""
+    
     @State private var weekDays1 = ["Monday"]
     @State private var category: UUID?
     @State private var dateAdded = Date()
@@ -27,9 +28,9 @@ struct AddHabitScreen: View {
     @State private var isAddCategoryOpen = false
     @State private var backtoHome = false
     let notify = NotificationHandler()
-    init() {
-        requestAuthorization()
-    }
+//    init() {
+//        requestAuthorization()
+//    }
     var habit: Habit? = nil
     
     init (habit: Habit? = nil) {
@@ -72,6 +73,7 @@ struct AddHabitScreen: View {
   
     var body: some View {
         NavigationView {
+          
             Form {
                 TextField("Habit Name", text: $title)
                 TextField("RemainText", text: $remainderText)
@@ -145,8 +147,10 @@ struct AddHabitScreen: View {
                 }
                 
                 HStack{
-                  //  DatePicker("Pick time", selection: $dateAdded, displayedComponents: [.date])
-                    MultiDatePicker("vbvb", selection: .constant([]))
+                    
+                    DatePicker("Pick time", selection: $dateAdded,  in: Date()...)
+                  
+                   // MultiDatePicker("hgbh", selection: .constant([]))
 //                    DatePicker(
 //                        "Do Date",
 //                        selection: $dateAdded,
@@ -163,6 +167,8 @@ struct AddHabitScreen: View {
 //                .navigationBarTitleDisplayMode(.inline)
                 
             }
+          
+            
             .toolbar {
                 ToolbarItem (placement: .navigationBarLeading) {
                     Button (action: { dismiss() }) {
@@ -173,7 +179,8 @@ struct AddHabitScreen: View {
               
                 ToolbarItem (placement: .navigationBarTrailing) {
                     Button(action: { publishHabit()
-                        scheduleNotification()
+                      //  scheduleNotification()
+                        notify.scheduleNotification(weekday: weekDays1, date: dateAdded, type: "weekday", title: title, body: remainderText)
                         backtoHome = true
                     })
                            {
@@ -189,6 +196,24 @@ struct AddHabitScreen: View {
                                                 //.environmentObject(taskModel)
                                         }
             
+//
+                }
+                ToolbarItem (placement: .primaryAction) {
+                    Button (action:{
+                        notify.requestAuthorization()
+                    //    NotificationManager.instance.requestAuthentication()
+                      //  backtoHome.toggle()
+                    }) {
+                        Image(systemName: "bell")
+
+//                            .onTapGesture {
+//                                backtoHome.toggle()
+//                            }
+//
+                    }
+                    .opacity( habit == nil ? 1 : 0)
+
+
 //
                 }
                
@@ -222,58 +247,59 @@ struct AddHabitScreen: View {
             }
         }
     }
+    
     private func deleteHabit(object: NSManagedObject) {
         PersistenceController.shared.delete(context: moc, object: object)
     }
     
-    //MARK: Scheduling notifications
-    func scheduleNotification() -> [String]  {
-        let content = UNMutableNotificationContent()
-        content.title = "Habit Remainder"
-        content.subtitle = remainderText
-        content.sound = .default
-        
-        var notificationsIDs: [String] = []
-        
-        let calendar = Calendar.current
-        let weekDaySybmols: [String] = calendar.weekdaySymbols
-        
-        for weekDay in weekDays1 {
-            let id = UUID().uuidString
-            let hour = calendar.component(.hour, from: dateAdded)
-            let minute = calendar.component(.minute, from: dateAdded)
-            let day = weekDaySybmols.firstIndex { currentDay in
-                return currentDay == weekDay
-            } ?? -1
-            
-            var components = DateComponents()
-            components.hour = hour
-            components.minute = minute
-            components.weekday = day + 1
-            
-            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
-            
-            let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
-            
-        //    try await UNUserNotificationCenter.current().add(request)
-            
-            notificationsIDs.append(id)
-            UNUserNotificationCenter.current().add(request)
-            
-        }
-        
-        return notificationsIDs
-    }
-    func requestAuthorization() {
-        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
-        UNUserNotificationCenter.current().requestAuthorization(options: options) { authorizarionSuccess, error in
-            if let error = error {
-                print("Error \(error.localizedDescription)")
-            } else {
-                print("Authorization request success")
-            }
-        }
-    }
+//    //MARK: Scheduling notifications
+//    func scheduleNotification() -> [String]  {
+//        let content = UNMutableNotificationContent()
+//        content.title = "Habit Remainder"
+//        content.subtitle = remainderText
+//        content.sound = .default
+//
+//        var notificationsIDs: [String] = []
+//
+//        let calendar = Calendar.current
+//        let weekDaySybmols: [String] = calendar.weekdaySymbols
+//
+//        for weekDay in weekDays1 {
+//            let id = UUID().uuidString
+//            let hour = calendar.component(.hour, from: dateAdded)
+//            let minute = calendar.component(.minute, from: dateAdded)
+//            let day = weekDaySybmols.firstIndex { currentDay in
+//                return currentDay == weekDay
+//            } ?? -1
+//
+//            var components = DateComponents()
+//            components.hour = hour
+//            components.minute = minute
+//            components.weekday = day + 1
+//
+//            let trigger = UNCalendarNotificationTrigger(dateMatching: components, repeats: true)
+//
+//            let request = UNNotificationRequest(identifier: id, content: content, trigger: trigger)
+//
+//        //    try await UNUserNotificationCenter.current().add(request)
+//
+//            notificationsIDs.append(id)
+//            UNUserNotificationCenter.current().add(request)
+//
+//        }
+//
+//        return notificationsIDs
+//    }
+//    func requestAuthorization() {
+//        let options: UNAuthorizationOptions = [.alert, .sound, .badge]
+//        UNUserNotificationCenter.current().requestAuthorization(options: options) { authorizarionSuccess, error in
+//            if let error = error {
+//                print("Error \(error.localizedDescription)")
+//            } else {
+//                print("Authorization request success")
+//            }
+//        }
+//    }
     
    
 }

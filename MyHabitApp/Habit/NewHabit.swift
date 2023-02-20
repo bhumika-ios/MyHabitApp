@@ -10,7 +10,7 @@ extension Category{
     public var itemsArray:[Habit]{
         let set = habits as? Set<Habit> ?? []
         return set.sorted{
-            $0.dateAdded! < $1.dateAdded!
+            $0.dateCreated! < $1.dateCreated!
         }
     }
 }

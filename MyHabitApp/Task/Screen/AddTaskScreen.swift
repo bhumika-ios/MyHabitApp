@@ -22,7 +22,7 @@ struct AddTaskScreen: View {
     @State private var taskDate = Date()
     @State private var isAddCategoryOpen = false
     @State private var backtoHome = false
-    let notify = NotificationHandler()
+    let notify = NotificationHandler1()
     var task: TaskList? = nil
     
     init (task: TaskList? = nil) {
@@ -124,7 +124,7 @@ struct AddTaskScreen: View {
                 }
                 ToolbarItem (placement: .primaryAction) {
                     Button (action:{
-                        notify.askNotification()
+                        notify.askTaskNotification()
                     //    NotificationManager.instance.requestAuthentication()
                       //  backtoHome.toggle()
                     }) {
