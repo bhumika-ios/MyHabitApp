@@ -12,6 +12,7 @@ import CoreData
 import SwiftUI
 
 class NotificationHandler1{
+ 
     func askTaskNotification(){
         UNUserNotificationCenter.current().requestAuthorization(options: [.alert,.badge,.sound]) { success, error in
             if success {
@@ -44,7 +45,7 @@ class NotificationHandler1{
     func removeScheduledNotification(task: TaskList) {
         let id = UUID().uuidString
         UNUserNotificationCenter.current()
-            .removePendingNotificationRequests(withIdentifiers:[id])
+                   .removePendingNotificationRequests(withIdentifiers:[id])
     }
     func removePendingRequest(request: UNNotificationRequest) {
         UNUserNotificationCenter.current().removePendingNotificationRequests(withIdentifiers: [request.identifier])

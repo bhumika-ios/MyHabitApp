@@ -6,11 +6,13 @@
 //
 
 import SwiftUI
+import UserNotifications
 
 struct AddTaskScreen: View {
     @Environment(\.managedObjectContext) private var moc
     @Environment(\.dismiss) private var dismiss
     @Environment(\.self) var env
+    
     @State private var color = Color.indigo
     @State private var systemIcon = "calendar"
     
@@ -149,6 +151,7 @@ struct AddTaskScreen: View {
                     Button{
                         if let editTask =  task {
                             env.managedObjectContext.delete(editTask)
+                            UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
                           //  backtoHome.toggle()
                             try? env.managedObjectContext.save()
                             //env.dismiss()
