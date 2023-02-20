@@ -7,6 +7,7 @@
 
 import SwiftUI
 import CoreData
+import UserNotifications
 
 struct AddHabitScreen: View {
   //  @EnvironmentObject var habitModel: HabitViewModel
@@ -250,6 +251,7 @@ struct AddHabitScreen: View {
     
     private func deleteHabit(object: NSManagedObject) {
         PersistenceController.shared.delete(context: moc, object: object)
+        UNUserNotificationCenter.current().removeAllPendingNotificationRequests()
     }
     
 //    //MARK: Scheduling notifications
